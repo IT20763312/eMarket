@@ -1,0 +1,115 @@
+.admincurrencies-form-main {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background-color: #1f2833;
+}
+
+.admincurrencies-form-sub-main {
+    display: flex;
+    justify-content: center;
+    height: 1000px;
+    width: 450px;
+    box-shadow: 11px 12px 13px 12px #0b0c10;
+    padding-top: 30px;
+    border-radius: 60px;
+    background-color: #c5c6c7;
+}
+
+.admincurrencies-form-sub-sub-main {
+    background-color: #c5c6c7;
+    height: 550px;
+}
+
+.admincurrencies-form-imgs {
+    padding-top: 20px;
+    justify-content: center;
+    display: flex;
+    background-color: #c5c6c7;
+}
+
+.admincurrencies-form-container-image {
+    background-color: rgb(223, 221, 221);
+    border-radius: 150px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 115px;
+    width: 115px;
+}
+
+.admincurrencies-form-profile {
+    height: 100px;
+    width: 100px;
+    border-radius: 130px;
+    background-color: #45a29e;
+    display: flex;
+}
+
+
+input {
+    width: 300px;
+    height: 50px;
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border: none;
+    outline: none;
+    background-color: #c5c6c7;
+}
+
+.admincurrencies-form-details {
+    padding-bottom: 20px;
+    background-color: #c5c6c7;
+}
+
+.admincurrencies-form-heading {
+    background-color: #c5c6c7;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.admincurrencies-form-name {
+    color: black;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.admincurrencies-form-second-input {
+    background-color: #c5c6c7;
+    padding-bottom: 20px;
+}
+
+.admincurrencies-form-button {
+    width: 330px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: #66fcf1;
+    color: black;
+    font-size: 25px;
+    border: none;
+}
+
+.admincurrencies-form-signup-button {
+    padding-top: 5px;
+    background-color: #c5c6c7;
+}
+
+.admincurrencies-h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.admincurrencies-h5 {
+    display: flex;
+    justify-content: center;
+    background-color: #66fcf1;
+    color: #0b0c10;
+}
+
+.admincurrencies-returns{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,102 @@
+.categorywiseproductlist-search {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .categorywiseproductlist-text {
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  
+  .categorywiseproductlist-input {
+    padding-left: 16px;
+    width: 300px;
+    height: 50px;
+    border-radius: 4px;
+    border: none;
+    background-image: linear-gradient(-225deg, #ac32e4 0%, #7918f2 48%, #4801ff 100%);
+    color: #e2e2e2;
+  }
+  
+  .categorywiseproductlist-input::placeholder {
+    color: #e2e2e2;
+  }
+  
+  .categorywiseproductlist-row {
+    margin: 0 -5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 10px;
+  }
+  
+  .categorywiseproductlist-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .categorywiseproductlist-column {
+    float: left;
+    width: 100%;
+    padding: 10px 10px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .categorywiseproductlist-column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .categorywiseproductlist-card {
+    box-shadow: 0 4px 8px 0 #0b0c10;
+    padding: 16px;
+    text-align: center;
+    background-color:#1f2833;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .categorywiseproductlist-card:hover{
+    border-bottom: 4px solid #fff;
+    transition: all 0.2s ease-out;
+  }
+  
+  .categorywiseproductlist-h2{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 20px;
+  }
+
+  .categorywiseproductlist-h3{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 30px;
+  }
+
+  .categorywiseproductlist-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+  }
+
+  .categorywiseproductlist-image{
+    background-color: #1f2833;
+    padding-right: 50px;
+  }
+
+  .categorywiseproductlist-h2andh3andbutton{
+    background-color: #1f2833;
+    width: 60%;
+  }
+
+  .categorywiseproductlist-viewbutton{
+    background-color: #1f2833;
+    padding-top: 25px;
+  }

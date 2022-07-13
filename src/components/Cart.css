@@ -1,0 +1,103 @@
+  .mycart-row {
+    margin: 0 -5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 10px;
+  }
+  
+  .mycart-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .mycart-column {
+    width: 100%;
+    padding: 10px 10px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .mycart-column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .mycart-card {
+    box-shadow: 0 4px 8px 0 #0b0c10;
+    padding: 16px;
+    text-align: center;
+    background-color:#1f2833;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .mycart-card:hover{
+    border-bottom: 4px solid #fff;
+    transition: all 0.2s ease-out;
+  }
+  
+  .mycart-h2{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 20px;
+  }
+
+  .mycart-h3{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 30px;
+  }
+
+  .mycart-img{
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+  }
+
+  .mycart-img:hover{
+    border-radius: 10px;
+  }
+
+  .mycart-image{
+    background-color: #1f2833;
+    padding-right: 50px;
+  }
+
+  .mycart-h2andh3andbutton{
+    background-color: #1f2833;
+    width: 60%;
+  }
+
+  .mycart-viewbuttonandbuynowbutton{
+    background-color: #1f2833;
+    padding-top: 25px;
+  }
+
+  input {
+    padding-left: 15px;
+    font-size: 20px;
+    color: black;
+  }
+
+  .mycart-input {
+    padding-bottom: 10px;
+    background-color: #1f2833;
+  }
+
+  .mycart-contactnumberandname {
+    display: flex;
+  }
+
+  .mycart-h4{
+    background-color: #1f2833;
+    color: white;
+  }
+
+  .mycart-select {
+    padding-bottom: 10px;
+    background-color: #1f2833;
+  }

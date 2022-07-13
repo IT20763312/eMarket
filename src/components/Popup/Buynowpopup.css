@@ -1,0 +1,27 @@
+.buynowpopup {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buynowpopup-inner {
+    top: 140px;
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    background-color: #1f2833;
+    border-radius: 20px;
+}
+
+.buynowpopup-inner .buynowpopup-closebtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

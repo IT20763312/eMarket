@@ -1,0 +1,133 @@
+.login-form-main {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background-color: #1f2833;
+}
+
+.login-form-sub-main {
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    width: 450px;
+    box-shadow: 11px 12px 13px 12px #0b0c10;
+    padding-top: 30px;
+    border-radius: 60px;
+    background-color: #c5c6c7;
+}
+
+.login-form-sub-sub-main {
+    background-color: #c5c6c7;
+    height: 500px;
+}
+
+.login-form-imgs {
+    padding-top: 20px;
+    justify-content: center;
+    display: flex;
+    background-color: #c5c6c7;
+}
+
+.login-form-container-image {
+    background-color: rgb(223, 221, 221);
+    border-radius: 150px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 115px;
+    width: 115px;
+}
+
+.login-form-profile {
+    height: 100px;
+    width: 100px;
+    border-radius: 130px;
+    background-color: #45a29e;
+    display: flex;
+}
+
+
+input {
+    width: 300px;
+    height: 50px;
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border: none;
+    outline: none;
+    background-color: #c5c6c7;
+}
+
+.login-form-details {
+    background-color: #c5c6c7;
+}
+
+.login-form-heading {
+    background-color: #c5c6c7;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.login-form-name {
+    color: black;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.login-form-second-input {
+    padding-top: 20px;
+    background-color: #c5c6c7;
+}
+
+.login-form-button {
+    width: 330px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: #66fcf1;
+    color: black;
+    font-size: 25px;
+    border: none;
+}
+
+.login-form-login-button {
+    padding-top: 25px;
+    background-color: #c5c6c7;
+}
+
+.login-logos{
+    background-color: #c5c6c7;
+    padding-top: 25px;
+    display:flex;
+    align-content: center;
+}
+
+.login-single-logos{
+    background-color: #c5c6c7;
+    padding-right: 41px;
+}
+
+.login-single-logos4{
+    background-color: #c5c6c7;
+}
+
+.login-logos img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.login-form-link {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #c5c6c7;
+    color: black;
+    padding-top: 20px;
+}
+
+.login-form-a {
+    color: blue;
+    background-color: #c5c6c7;
+}

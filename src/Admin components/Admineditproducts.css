@@ -1,0 +1,133 @@
+.admineditproducts-form-main {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 90px;
+    padding-bottom: 90px;
+    background-color: #1f2833;
+}
+
+.admineditproducts-form-sub-main {
+    display: flex;
+    justify-content: center;
+    height: 1900px;
+    width: 450px;
+    box-shadow: 11px 12px 13px 12px #0b0c10;
+    padding-top: 30px;
+    border-radius: 60px;
+    background-color: #c5c6c7;
+}
+
+.admineditproducts-form-sub-sub-main {
+    background-color: #c5c6c7;
+    height: 550px;
+}
+
+.admineditproducts-form-imgs {
+    padding-top: 20px;
+    justify-content: center;
+    display: flex;
+    background-color: #c5c6c7;
+}
+
+.admineditproducts-form-container-image {
+    background-color: rgb(223, 221, 221);
+    border-radius: 150px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 115px;
+    width: 115px;
+}
+
+.admineditproducts-form-profile {
+    height: 100px;
+    width: 100px;
+    border-radius: 130px;
+    background-color: #45a29e;
+    display: flex;
+}
+
+
+input {
+    width: 300px;
+    height: 50px;
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border: none;
+    outline: none;
+    background-color: #c5c6c7;
+}
+
+select {
+    width: 300px;
+    height: 50px;
+    border-radius: 60px;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border: none;
+    outline: none;
+    background-color: #c5c6c7;
+    color: black;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+option {
+    color:#c5c6c7;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+textarea {
+    background-color: #c5c6c7;
+    box-shadow: inset 0px 0px 25px 0px #888;
+    border-radius: 30px;
+    width: 300px;
+    height: 300px;
+    border: none;
+    outline: none;
+}
+
+.admineditproducts-form-details {
+    padding-bottom: 20px;
+    background-color: #c5c6c7;
+}
+
+.admineditproducts-form-heading {
+    background-color: #c5c6c7;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.admineditproducts-form-name {
+    color: black;
+    padding-left: 20px;
+    font-size: 20px;
+}
+
+.admineditproducts-form-second-input {
+    background-color: #c5c6c7;
+    padding-bottom: 20px;
+}
+
+.admineditproducts-form-button {
+    width: 330px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: #66fcf1;
+    color: black;
+    font-size: 25px;
+    border: none;
+}
+
+.admineditproducts-form-signup-button {
+    padding-top: 5px;
+    background-color: #c5c6c7;
+    padding-bottom: 20px;
+}
+
+.progress {
+    background-color: #c5c6c7;
+    color: black;
+}

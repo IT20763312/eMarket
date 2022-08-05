@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Adminloginform.css'
 import { useNavigate } from "react-router-dom";
 import { db } from '../Firebase-config';
@@ -14,16 +14,17 @@ function Adminloginform({ setAdminAuth }) {
 
     const navigate = useNavigate();
 
-    const register = () => {
-
-        
+    useEffect (()=>{
         const getUsers = async () =>{
             const data = await getDocs(adminUsersCollectionRef);
             setAdminUsers(data.docs.map((doc)=>({...doc.data(),id: doc.id})));
 
         }
         getUsers();
-        
+    })
+
+    const register = () => {
+
         adminUsers.map((user)=>{
             if(registerEmail===user.email && registerPassword===user.password){
                 localStorage.setItem("adminAuth", true);
@@ -34,6 +35,7 @@ function Adminloginform({ setAdminAuth }) {
             else{
                 alert("Please enter the correct email or password");
             }
+            return(<></>);
         })
 
     }
@@ -61,13 +63,8 @@ function Adminloginform({ setAdminAuth }) {
                         <div className="adminlogin-form-login-button">
                             <button onClick={register} className='adminlogin-form-button'>Login</button>
                         </div>
-
-
-
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

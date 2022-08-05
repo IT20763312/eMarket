@@ -33,6 +33,9 @@ function Itemcategories() {
         <Link to='/mycart'>
         <p>My Cart</p>
         </Link>
+        <Link to='/mymarketplaceorders'>
+        <p>My Orders</p>
+        </Link>
         <br></br>
         <br></br>
         <h1 className="itemcategory-text">Search a Category</h1>

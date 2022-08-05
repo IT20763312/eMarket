@@ -1,0 +1,78 @@
+.Adminmarketplaceorderlistdetails {
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 1400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Adminmarketplaceorderlistdetails-inner {
+    top: 10px;
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 650px;
+    background-color: #1f2833;
+    border-radius: 20px;
+}
+
+.Adminmarketplaceorderlistdetails-h2{
+    background-color: #1f2833;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.Adminmarketplaceorderlistdetails-h3{
+    background-color: #1f2833;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Adminmarketplaceorderlistdetails-h3-active{
+    color: green;
+    background-color: #1f2833;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Adminmarketplaceorderlistdetails-radio{
+    background-color: #1f2833;
+    width: 15px;
+    height: 15px;
+}
+
+.Adminmarketplaceorderlistdetails-qr{
+    background-color: #1f2833 ;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .Adminmarketplaceorderlistdetails-input{
+    background-color: #1f2833;
+    text-align: center;
+  }
+
+  .Adminmarketplaceorderlistdetails-btn{
+    background-color: #1f2833;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .Adminmarketplaceorderlistdetails-button{
+    width: 200px;
+  }
+
+  .Adminmarketplaceorderlistdetails-textarea{
+    padding-left: 20px;
+    font-size: 20px;
+    color: black;
+  }
+
+  .Adminmarketplaceorderlistdetails-label{
+    background-color: #1f2833;
+    font-size: 20px;
+  }

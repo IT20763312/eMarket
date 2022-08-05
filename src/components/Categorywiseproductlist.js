@@ -11,6 +11,8 @@ function Categorywiseproductlist() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
 
+  const [scroll,setScroll] = useState(true);
+
   const q = query(collection(db, "Products"), where("categoryId", "==", location.state.categoryId));
 
   const filteredProducts = products.filter(product => product.productName.toLowerCase().includes(search.toLowerCase()))
@@ -21,7 +23,12 @@ function Categorywiseproductlist() {
       setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     }
     getProductList();
-  })
+
+    if(scroll===true){
+      window.scrollTo({top: 0, left: 0, behavior:'smooth'});
+      setScroll(false);
+    }
+  }, [scroll,q])
 
   const navigate = useNavigate();
   const toProduct = (id) => {

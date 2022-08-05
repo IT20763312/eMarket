@@ -1,0 +1,112 @@
+.mymarketplaceorders-row {
+    margin: 0 -5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 10px;
+  }
+  
+  .mymarketplaceorders-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .mymarketplaceorders-column {
+    width: 100%;
+    padding: 10px 10px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .mymarketplaceorders-column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .mymarketplaceorders-card {
+    box-shadow: 0 4px 8px 0 #0b0c10;
+    padding: 16px;
+    text-align: center;
+    background-color:#1f2833;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .mymarketplaceorders-card:hover{
+    border-bottom: 4px solid #fff;
+    transition: all 0.2s ease-out;
+  }
+  
+  .mymarketplaceorders-h2{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 20px;
+  }
+
+  .mymarketplaceorders-h3{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 30px;
+  }
+
+  .mymarketplaceorders-img{
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+  }
+
+  .mymarketplaceorders-img:hover{
+    border-radius: 10px;
+  }
+
+  .mymarketplaceorders-image{
+    background-color: #1f2833;
+    padding-right: 50px;
+  }
+
+  .mymarketplaceorders-h2andh3andbutton{
+    background-color: #1f2833;
+    width: 60%;
+  }
+
+  .mymarketplaceorders-viewbuttonandbuynowbutton{
+    background-color: #1f2833;
+    padding-top: 25px;
+  }
+
+  input {
+    padding-left: 15px;
+    font-size: 20px;
+    color: black;
+  }
+
+  .mymarketplaceorders-input {
+    padding-bottom: 10px;
+    background-color: #1f2833;
+  }
+
+  .mymarketplaceorders-contactnumberandname {
+    display: flex;
+  }
+
+  .mymarketplaceorders-h4{
+    background-color: #1f2833;
+    color: white;
+  }
+
+  .mymarketplaceorders-select {
+    padding-bottom: 10px;
+    background-color: #1f2833;
+  }
+
+  .mymarketplaceorders-label {
+    background-color: #1f2833;
+    font-size: 25px;
+}
+
+.mymarketplaceorders-button{
+    width: 250px;
+}

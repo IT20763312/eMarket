@@ -11,11 +11,11 @@
 }
 
 .buynowpopup-inner {
-    top: 140px;
+    top: 290px;
     position: relative;
     padding: 32px;
     width: 100%;
-    max-width: 640px;
+    max-width: 650px;
     background-color: #1f2833;
     border-radius: 20px;
 }

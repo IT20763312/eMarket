@@ -1,0 +1,112 @@
+.Myinvestmentorders-row {
+    margin: 0 -5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 10px;
+  }
+  
+  .Myinvestmentorders-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .Myinvestmentorders-column {
+    float: left;
+    width: 100%;
+    padding: 10px 10px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .Myinvestmentorders-column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .Myinvestmentorders-card {
+    box-shadow: 0 4px 8px 0 #0b0c10;
+    padding: 16px;
+    text-align: center;
+    background-color:#1f2833;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .Myinvestmentorders-card:hover{
+    border-bottom: 4px solid #fff;
+    transition: all 0.2s ease-out;
+  }
+
+  .Myinvestmentorders-h1-main{
+    background-color: #1f2833;
+    width: 40%;
+  }
+
+  .Myinvestmentorders-h1{
+    background-color: #1f2833;
+    font-size: 150px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .Myinvestmentorders-h1{
+        background-color: #1f2833;
+        font-size: 100px;
+      }
+  }
+
+  @media screen and (max-width: 850px) {
+    .Myinvestmentorders-h1{
+        background-color: #1f2833;
+        font-size: 75px;
+      }
+  }
+
+  @media screen and (max-width: 650px) {
+    .Myinvestmentorders-h1{
+        background-color: #1f2833;
+        font-size: 50px;
+      }
+  }
+  
+  .Myinvestmentorders-h2{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 20px;
+    font-size: 30px;
+  }
+
+  .Myinvestmentorders-h3{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 30px;
+  }
+
+  .Myinvestmentorders-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+  }
+
+  .Myinvestmentorders-image{
+    background-color: #1f2833;
+    padding-right: 50px;
+  }
+
+  .Myinvestmentorders-h2andh3andbutton{
+    background-color: #1f2833;
+    width: 60%;
+  }
+
+  .Myinvestmentorders-viewbutton{
+    background-color: #1f2833;
+    padding-top: 25px;
+    width: 100%;
+  }
+
+  .Myinvestmentorders-btn{
+    width: 180px;
+  }

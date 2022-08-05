@@ -1,12 +1,14 @@
 import React from 'react';
 import Livecoinlist from '../Livecoinlist';
 import Navbar from '../Navbar';
+import Footer from '../Footer';
 
-function Livelist() {
+function Livelist({isAuth,setIsAuth}) {
   return (
     <>
-      <Navbar />
+      <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
       <Livecoinlist/>
+      <Footer/>
     </>
   )
 }

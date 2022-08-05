@@ -1,0 +1,73 @@
+.Admininvestmentorderlistdetails {
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 1500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Admininvestmentorderlistdetails-inner {
+    top: 10px;
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 650px;
+    background-color: #1f2833;
+    border-radius: 20px;
+}
+
+.Admininvestmentorderlistdetails-h2{
+    background-color: #1f2833;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.Admininvestmentorderlistdetails-h3{
+    background-color: #1f2833;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Admininvestmentorderlistdetails-h3-active{
+    color: green;
+    background-color: #1f2833;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.Admininvestmentorderlistdetails-radio{
+    background-color: #1f2833;
+    width: 15px;
+    height: 15px;
+}
+
+.Admininvestmentorderlistdetails-qr{
+    background-color: #1f2833 ;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .Admininvestmentorderlistdetails-input{
+    background-color: #1f2833;
+    text-align: center;
+  }
+
+  .Admininvestmentorderlistdetails-btn{
+    background-color: #1f2833;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .Admininvestmentorderlistdetails-button{
+    width: 200px;
+  }
+
+  .Admininvestmentorderlistdetails-textarea{
+    padding-left: 20px;
+    font-size: 20px;
+    color: black;
+  }

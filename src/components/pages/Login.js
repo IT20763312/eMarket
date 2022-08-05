@@ -1,12 +1,14 @@
 import React from 'react'
 import Loginform from '../Loginform';
 import Navbar from '../Navbar';
+import Footer from '../Footer';
 
-const Login = ({setIsAuth}) => {
+const Login = ({isAuth,setIsAuth}) => {
   return (
     <>
-      <Navbar />
+      <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
       <Loginform setIsAuth={setIsAuth}/>
+      <Footer/>
     </>
   )
 }

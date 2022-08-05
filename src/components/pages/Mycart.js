@@ -9,7 +9,7 @@ function Mycart({ isAuth, setIsAuth }) {
         <>
             {isAuth ? (
                 <>
-                    <Navbar />
+                    <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
                     <LivePrice isAuth={isAuth} setIsAuth={setIsAuth} />
                     <Cart />
                     <Footer />

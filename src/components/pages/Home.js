@@ -9,7 +9,7 @@ import '../../App.css';
 function Home({isAuth,setIsAuth}) {
   return (
     <>
-      <Navbar />
+      <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
       <LivePrice isAuth={isAuth} setIsAuth={setIsAuth}/>
       <Videosection />
       <Cards />

@@ -91,3 +91,39 @@
 .products-buttons{
     width: 170px;
 }
+
+.products-select {
+    padding-bottom: 10px;
+    background-color: #1f2833;
+  }
+
+  .products-h4{
+    background-color: #1f2833;
+    color: white;
+  }
+
+  .products-contactnumberandname {
+    display: flex;
+  }
+
+  .products-h2{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 20px;
+  }
+
+  .products-h3{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 30px;
+  }
+
+  .products-inputs{
+    padding-bottom: 10px;
+    background-color: #1f2833;
+  }
+
+  .products-qr{
+    background-color: #1f2833 ;
+    padding-top: 20px;
+  }

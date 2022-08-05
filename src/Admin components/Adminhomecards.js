@@ -17,8 +17,32 @@ function Adminhomecards() {
               path='/adminaddproducts'
             />
             <AdminHomeCardItems
+              text='Manage Products'
+              path='/admincategorieslist'
+            />
+            <AdminHomeCardItems
+              text='MarketPlace Orders'
+              path='/adminmarketplaceorders'
+            />
+          </ul>
+        </div>
+        <div className='admin__home__cards__wrapper'>
+          <ul className='admin__home__cards__items'>
+            <AdminHomeCardItems
               text='Manage Currencies'
               path='/admincurrencies'
+            />
+          </ul>
+        </div>
+        <div className='admin__home__cards__wrapper'>
+          <ul className='admin__home__cards__items'>
+            <AdminHomeCardItems
+              text='Manage Investments'
+              path='/adminaddinvestments'
+            />
+            <AdminHomeCardItems
+              text='Investment Orders'
+              path='/admininvestmentorders'
             />
           </ul>
         </div>

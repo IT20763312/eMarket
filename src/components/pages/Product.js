@@ -7,7 +7,7 @@ import Footer from '../Footer';
 function Product({isAuth,setIsAuth}) {
   return (
     <>
-      <Navbar />
+      <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
       <Liveprice isAuth={isAuth} setIsAuth={setIsAuth}/>
       <Products isAuth={isAuth} />
       <Footer/>

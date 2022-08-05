@@ -1,0 +1,124 @@
+.adminproducts-main{
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    align-content: center;
+}
+
+.adminproducts-mainimage{
+    width: 330px;
+    height: 300px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.adminproducts-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+}
+
+.adminproducts-img:hover {
+    border-radius: 20px;
+}
+
+.adminproducts-images {
+    padding-left: 30px;
+    width: 330px;
+    height: 66px;
+    padding-top: 10px;
+}
+
+.adminproducts-imgset{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.adminproducts-imgset:hover{
+    border-radius: 20px;
+}
+
+.adminproducts-details{
+    text-align: center;
+    padding-left: 30px;
+    width: 60%;
+}
+
+.adminproducts-h1 {
+    padding-bottom: 10px;
+}
+
+.adminproducts-p {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.adminproducts-price {
+    font-size: 30px;
+    color: #66fcf1;
+    padding-bottom: 10px;
+}
+
+.adminproducts-price:hover {
+    color: #45a29e;
+}
+
+.adminproducts-qty{
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.adminproducts-input {
+    width: 150px;
+    padding-left: 20px;
+    font-size: 20px;
+    color: black;
+}
+
+.adminproducts-variations {
+    width: 20px;
+    height: 20px;
+}
+
+.adminproducts-shipping{
+    width: 20px;
+    height: 20px;
+    
+}
+
+.adminproducts-buttons{
+    width: 170px;
+}
+
+.adminproducts-select {
+    padding-bottom: 10px;
+    background-color: #1f2833;
+  }
+
+  .adminproducts-h4{
+    background-color: #1f2833;
+    color: white;
+  }
+
+  .adminproducts-contactnumberandname {
+    display: flex;
+  }
+
+  .adminproducts-h2{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 20px;
+  }
+
+  .adminproducts-h3{
+    background-color: #1f2833;
+    color: white;
+    padding-top: 30px;
+  }
+
+  .adminproducts-inputs{
+    padding-bottom: 10px;
+    background-color: #1f2833;
+  }

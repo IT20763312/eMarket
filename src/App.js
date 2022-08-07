@@ -17,6 +17,7 @@ import InvestmentList from './components/pages/Investmentlist';
 import InvestmentDetails from './components/pages/Investmentdetails';
 import Investmentorders from './components/pages/Investmentorders';
 import Investmentorderdetails from './components/pages/Investmentorderdetails';
+import Exchanges from './components/pages/Exchange';
 import Adminhome from './Admin components/Admin pages/Adminhome';
 import Adminlogin from './Admin components/Admin pages/Adminlogin';
 import Adminsignup from './Admin components/Admin pages/Adminsignup';
@@ -58,6 +59,7 @@ function App() {
           <Route path='/investmentdetails' element={<InvestmentDetails isAuth={isAuth} setIsAuth={setIsAuth}/>}/>
           <Route path='/myinvestmentorders' element={<Investmentorders isAuth={isAuth} setIsAuth={setIsAuth}/>}/>
           <Route path='/myinvestmentorderdetails' element={<Investmentorderdetails isAuth={isAuth} setIsAuth={setIsAuth}/>}/>
+          <Route path='/exchanges' element={<Exchanges isAuth={isAuth} setIsAuth={setIsAuth}/>}/>
           <Route path='/adminhome' element={<Adminhome adminAuth={adminAuth}/> }/>
           <Route path='/adminlogin' element={<Adminlogin setAdminAuth={setAdminAuth}/>}/>
           <Route path='/adminsignup' element={<Adminsignup adminAuth={adminAuth}/>}/>

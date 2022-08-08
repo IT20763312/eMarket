@@ -9,21 +9,21 @@ function Adminmanagecurrencies() {
     const [currencySymbol,setCurrencySymbol] = useState("");
     const [currencyNetwork,setCurrencyNetwork] = useState("");
     const [currencyWalletId,setCurrencyWalletId] = useState("");
-    const [currencyLink,setCurrencyLink] = useState("");
+    const [currencyCode,setCurrencyCode] = useState("");
 
     const [editCurrencyId, setEditCurrencyId] = useState("");
     const [editCurrencyName,setEditCurrencyName] = useState("");
     const [editCurrencySymbol,setEditCurrencySymbol] = useState("");
     const [editCurrencyNetwork,setEditCurrencyNetwork] = useState("");
     const [editCurrencyWalletId,setEditCurrencyWalletId] = useState("");
-    const [editCurrencyLink,setEditCurrencyLink] = useState("");
+    const [editCurrencyCode,setEditCurrencyCode] = useState("");
 
     const [editableCurrencies,setEditableCurrencies] = useState([]);
 
     const currenciesCollectionRef = collection(db, "currencies");
 
     const addCurrencies = async () => {
-        await addDoc(currenciesCollectionRef, { currencyName: currencyName, currencySymbol: currencySymbol, currencyNetwork: currencyNetwork, currencyWalletId: currencyWalletId, currencyLink:currencyLink });
+        await addDoc(currenciesCollectionRef, { currencyName: currencyName, currencySymbol: currencySymbol, currencyNetwork: currencyNetwork, currencyWalletId: currencyWalletId, currencyCode:currencyCode });
         alert("New currency Added!");
     }
 
@@ -32,18 +32,18 @@ function Adminmanagecurrencies() {
         setEditableCurrencies(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
-    const getEditableCurrency = async (id,name,symbol,network,walletId,link) => {
+    const getEditableCurrency = async (id,name,symbol,network,walletId,code) => {
         setEditCurrencyId(id);
         setEditCurrencyName(name);
         setEditCurrencySymbol(symbol);
         setEditCurrencyNetwork(network);
         setEditCurrencyWalletId(walletId);
-        setEditCurrencyLink(link)
+        setEditCurrencyCode(code)
     };
 
     const editCurrencies = async () => {
         const currencyDoc = doc(db,"currencies",editCurrencyId)
-        const newFields = { currencyName: editCurrencyName, currencySymbol: editCurrencySymbol, currencyNetwork: editCurrencyNetwork, currencyWalletId: editCurrencyWalletId, currencyLink:editCurrencyLink};
+        const newFields = { currencyName: editCurrencyName, currencySymbol: editCurrencySymbol, currencyNetwork: editCurrencyNetwork, currencyWalletId: editCurrencyWalletId, currencyCode:editCurrencyCode};
         await updateDoc(currencyDoc,newFields);
         alert("Currency Updated");
      } 
@@ -69,7 +69,7 @@ function Adminmanagecurrencies() {
                                 <input name='currency' type="text" placeholder="Currency Wallet Id" className="admincurrencies-form-name" onChange={(event) => { setCurrencyWalletId(event.target.value); }}/>
                             </div>
                             <div className='admincurrencies-form-details'>
-                                <input name='currency' type="text" placeholder="Currency Link" className="admincurrencies-form-name" onChange={(event) => { setCurrencyLink(event.target.value); }}/>
+                                <input name='currency' type="text" placeholder="Currency Code" className="admincurrencies-form-name" onChange={(event) => { setCurrencyCode(event.target.value); }}/>
                             </div>
                             <div className="admincurrencies-form-signup-button">
                                 <button onClick={addCurrencies} className='admincurrencies-form-button'>Add Currency</button>
@@ -96,7 +96,7 @@ function Adminmanagecurrencies() {
                                 <input defaultValue={editCurrencyWalletId} name='Editcurrency' type="text" placeholder="Edit Currency Wallet Id" className="admincurrencies-form-name" onChange={(event) => { setEditCurrencyWalletId(event.target.value); }}/>
                             </div>
                             <div className='admincurrencies-form-details'>
-                                <input defaultValue={editCurrencyLink} name='Editcurrency' type="text" placeholder="Edit Currency Wallet Id" className="admincurrencies-form-name" onChange={(event) => { setEditCurrencyLink(event.target.value); }}/>
+                                <input defaultValue={editCurrencyCode} name='Editcurrency' type="text" placeholder="Edit Currency Wallet Id" className="admincurrencies-form-name" onChange={(event) => { setEditCurrencyCode(event.target.value); }}/>
                             </div>
                             <div className="admincurrencies-form-signup-button">
                                 <button onClick={editCurrencies} className='admincurrencies-form-button'>Edit Currency</button>
@@ -124,7 +124,7 @@ function Adminmanagecurrencies() {
                         <>
                             <div className='admincurrencies-returns'>
                             <h2 className='admincurrencies-h2'>{curr.currencyName}</h2>
-                            <button onClick={()=>getEditableCurrency(curr.id,curr.currencyName,curr.currencySymbol,curr.currencyNetwork,curr.currencyWalletId,curr.currencyLink)}>Edit</button>
+                            <button onClick={()=>getEditableCurrency(curr.id,curr.currencyName,curr.currencySymbol,curr.currencyNetwork,curr.currencyWalletId,curr.currencyCode)}>Edit</button>
                             </div>
                         </>
                     );

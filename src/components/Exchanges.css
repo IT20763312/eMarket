@@ -1,0 +1,40 @@
+.Exchanges {
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.Exchanges-inner {
+    top: 10px;
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 650px;
+    background-color: #1f2833;
+    border-radius: 20px;
+}
+
+.Exchanges-h2{
+    background-color: #1f2833;
+    text-align: center;
+}
+
+.Exchanges-select{
+    background-color: #1f2833;
+    text-align: center;
+}
+
+.Exchanges-h4{
+    background-color: #1f2833;
+    text-align: center;
+}
+
+.Exchanges-input{
+    background-color: #1f2833;
+    text-align: center;
+}

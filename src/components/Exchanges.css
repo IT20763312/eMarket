@@ -38,3 +38,10 @@
     background-color: #1f2833;
     text-align: center;
 }
+
+.Exchanges-h4-msg{
+    background-color: #1f2833;
+    text-align: center;
+    color: red;
+    padding-bottom: 10px;
+}

@@ -10,6 +10,9 @@ function Adminmanagecurrencies() {
     const [currencyNetwork,setCurrencyNetwork] = useState("");
     const [currencyWalletId,setCurrencyWalletId] = useState("");
     const [currencyCode,setCurrencyCode] = useState("");
+    const [exchangeProfit,setExchangeProfit] = useState();
+    const [exchangeMinAmount,setExchangeMinAmount] = useState();
+    const [exchangeMaxAmount,setExchangeMaxAmount] = useState();
 
     const [editCurrencyId, setEditCurrencyId] = useState("");
     const [editCurrencyName,setEditCurrencyName] = useState("");
@@ -17,13 +20,16 @@ function Adminmanagecurrencies() {
     const [editCurrencyNetwork,setEditCurrencyNetwork] = useState("");
     const [editCurrencyWalletId,setEditCurrencyWalletId] = useState("");
     const [editCurrencyCode,setEditCurrencyCode] = useState("");
+    const [editExchangeProfit,setEditExchangeProfit] = useState();
+    const [editExchangeMinAmount,setEditExchangeMinAmount] = useState();
+    const [editExchangeMaxAmount,setEditExchangeMaxAmount] = useState();
 
     const [editableCurrencies,setEditableCurrencies] = useState([]);
 
     const currenciesCollectionRef = collection(db, "currencies");
 
     const addCurrencies = async () => {
-        await addDoc(currenciesCollectionRef, { currencyName: currencyName, currencySymbol: currencySymbol, currencyNetwork: currencyNetwork, currencyWalletId: currencyWalletId, currencyCode:currencyCode });
+        await addDoc(currenciesCollectionRef, {maxAmount:Number(exchangeMaxAmount),minAmount:Number(exchangeMinAmount), profit:Number(exchangeProfit), currencyName: currencyName, currencySymbol: currencySymbol, currencyNetwork: currencyNetwork, currencyWalletId: currencyWalletId, currencyCode:currencyCode });
         alert("New currency Added!");
     }
 
@@ -32,18 +38,21 @@ function Adminmanagecurrencies() {
         setEditableCurrencies(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
-    const getEditableCurrency = async (id,name,symbol,network,walletId,code) => {
+    const getEditableCurrency = async (id,name,symbol,network,walletId,code,profit,min,max) => {
         setEditCurrencyId(id);
         setEditCurrencyName(name);
         setEditCurrencySymbol(symbol);
         setEditCurrencyNetwork(network);
         setEditCurrencyWalletId(walletId);
-        setEditCurrencyCode(code)
+        setEditCurrencyCode(code);
+        setEditExchangeProfit(profit);
+        setEditExchangeMinAmount(min);
+        setEditExchangeMaxAmount(max);
     };
 
     const editCurrencies = async () => {
         const currencyDoc = doc(db,"currencies",editCurrencyId)
-        const newFields = { currencyName: editCurrencyName, currencySymbol: editCurrencySymbol, currencyNetwork: editCurrencyNetwork, currencyWalletId: editCurrencyWalletId, currencyCode:editCurrencyCode};
+        const newFields = {maxAmount:Number(editExchangeMaxAmount),minAmount:Number(editExchangeMinAmount),profit:Number(editExchangeProfit), currencyName: editCurrencyName, currencySymbol: editCurrencySymbol, currencyNetwork: editCurrencyNetwork, currencyWalletId: editCurrencyWalletId, currencyCode:editCurrencyCode};
         await updateDoc(currencyDoc,newFields);
         alert("Currency Updated");
      } 
@@ -70,6 +79,15 @@ function Adminmanagecurrencies() {
                             </div>
                             <div className='admincurrencies-form-details'>
                                 <input name='currency' type="text" placeholder="Currency Code" className="admincurrencies-form-name" onChange={(event) => { setCurrencyCode(event.target.value); }}/>
+                            </div>
+                            <div className='admincurrencies-form-details'>
+                                <input name='currency' type="number" placeholder="Profit in percentage" className="admincurrencies-form-name" onChange={(event) => { setExchangeProfit(event.target.value); }}/>
+                            </div>
+                            <div className='admincurrencies-form-details'>
+                                <input name='currency' type="number" placeholder="Exchange Min Amount" className="admincurrencies-form-name" onChange={(event) => { setExchangeMinAmount(event.target.value); }}/>
+                            </div>
+                            <div className='admincurrencies-form-details'>
+                                <input name='currency' type="number" placeholder="Exchange Max Amount" className="admincurrencies-form-name" onChange={(event) => { setExchangeMaxAmount(event.target.value); }}/>
                             </div>
                             <div className="admincurrencies-form-signup-button">
                                 <button onClick={addCurrencies} className='admincurrencies-form-button'>Add Currency</button>
@@ -98,6 +116,15 @@ function Adminmanagecurrencies() {
                             <div className='admincurrencies-form-details'>
                                 <input defaultValue={editCurrencyCode} name='Editcurrency' type="text" placeholder="Edit Currency Wallet Id" className="admincurrencies-form-name" onChange={(event) => { setEditCurrencyCode(event.target.value); }}/>
                             </div>
+                            <div className='admincurrencies-form-details'>
+                                <input Value={editExchangeProfit} name='Editcurrency' type="number" placeholder="Profit in percentage" className="admincurrencies-form-name" onChange={(event) => { setEditExchangeProfit(event.target.value); }}/>
+                            </div>
+                            <div className='admincurrencies-form-details'>
+                                <input Value={editExchangeMinAmount} name='Editcurrency' type="number" placeholder="Exchange Min Amount" className="admincurrencies-form-name" onChange={(event) => { setEditExchangeMinAmount(event.target.value); }}/>
+                            </div>
+                            <div className='admincurrencies-form-details'>
+                                <input Value={editExchangeMaxAmount} name='Editcurrency' type="number" placeholder="Exchange Max Amount" className="admincurrencies-form-name" onChange={(event) => { setEditExchangeMaxAmount(event.target.value); }}/>
+                            </div>
                             <div className="admincurrencies-form-signup-button">
                                 <button onClick={editCurrencies} className='admincurrencies-form-button'>Edit Currency</button>
                             </div>
@@ -124,7 +151,7 @@ function Adminmanagecurrencies() {
                         <>
                             <div className='admincurrencies-returns'>
                             <h2 className='admincurrencies-h2'>{curr.currencyName}</h2>
-                            <button onClick={()=>getEditableCurrency(curr.id,curr.currencyName,curr.currencySymbol,curr.currencyNetwork,curr.currencyWalletId,curr.currencyCode)}>Edit</button>
+                            <button onClick={()=>getEditableCurrency(curr.id,curr.currencyName,curr.currencySymbol,curr.currencyNetwork,curr.currencyWalletId,curr.currencyCode,curr.profit,curr.minAmount,curr.maxAmount)}>Edit</button>
                             </div>
                         </>
                     );

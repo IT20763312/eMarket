@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import $ from "jquery";
 import './Exchanges.css'
+import { useNavigate } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
 import { db } from '../Firebase-config';
 import { collection, getDocs, query } from 'firebase/firestore';
+import Popup from '../components/Popup/Exchangespopup';
+import QRCode from 'react-qr-code';
 
-function Exchanges() {
+function Exchanges({ isAuth }) {
 
     const [currencies, setCurrencies] = useState([]);
     const [scroll, setScroll] = useState(true);
@@ -15,10 +19,12 @@ function Exchanges() {
     const [currencyTo, setCurrencyTo] = useState("");
 
     const [profit, setProfit] = useState();
-    const [minAmount,setMinAmount] = useState();
-    const [maxAmount,setMaxAmount] = useState();
+    const [minAmount, setMinAmount] = useState();
+    const [maxAmount, setMaxAmount] = useState();
 
     const [amount, setAmount] = useState(0);
+
+    const [buttonPopup, setButtonPopup] = useState(false);
 
     const q1 = query(collection(db, "currencies"));
 
@@ -76,6 +82,22 @@ function Exchanges() {
 
     }, [currencyTo, currency, scroll, q1, currencies])
 
+    const navigate = useNavigate();
+
+    const set = () => {
+        if (isAuth === true) {
+            if (currency === "" && currencyTo === "" && amount === 0) {
+                alert("Please Select The Fields and set the amount?")
+            }
+            else {
+                setScroll(true);
+                setButtonPopup(true);
+            }
+        }
+        else {
+            navigate("/login");
+        }
+    }
 
     return (
         <>
@@ -100,8 +122,8 @@ function Exchanges() {
                         <input onChange={(e) => setAmount(e.target.value)} placeholder='Enter Amount' className='Exchanges-text' type="number" />
                     </div>
                     <br></br>
-                    {amount>maxAmount?(<><h4 className='Exchanges-h4-msg'>Max Amount is : {maxAmount}</h4></>):(<></>)}
-                    {amount<minAmount?(<><h4 className='Exchanges-h4-msg'>Min Amount is : {minAmount}</h4></>):(<></>)}
+                    {amount > maxAmount ? (<><h4 className='Exchanges-h4-msg'>Max Amount is : {maxAmount}</h4></>) : (<></>)}
+                    {amount < minAmount ? (<><h4 className='Exchanges-h4-msg'>Min Amount is : {minAmount}</h4></>) : (<></>)}
                     <hr></hr>
                     <br></br>
                     <h4 className='Exchanges-h4'>To</h4>
@@ -124,7 +146,80 @@ function Exchanges() {
                     {currencyTo === "" ? (<></>) : (<>
                         <h2 className='Exchanges-h2'>{((amount * currentPrice) / currentPriceTo) * (100 - profit) / 100}</h2>
                     </>)}
-
+                    <div className='Exchanges-btn'>
+                        <button onClick={set} className='Exchanges-button'>Exchange</button>
+                        <Popup setTrigger={setButtonPopup} trigger={buttonPopup}>
+                            <h2 className='Exchanges-h2'>Pay-out!</h2>
+                            <br></br>
+                            <hr></hr>
+                            <br></br>
+                            <h4 className='Exchanges-h4'>Currency : {currency}</h4>
+                            <br></br>
+                            <h4 className='Exchanges-h4'>To : {currencyTo}</h4>
+                            <br></br>
+                            <h4 className='Exchanges-h4'>Amount : {amount} ({currency})</h4>
+                            <br></br>
+                            <h4 className='Exchanges-h4'>Recieving : {((amount * currentPrice) / currentPriceTo) * (100 - profit) / 100} ({currencyTo})</h4>
+                            <br></br>
+                            <hr></hr>
+                            <br></br>
+                            <h2 className='Exchanges-h2'>Enter Transaction Details!</h2>
+                            <br></br>
+                            <hr></hr>
+                            <br></br>
+                            {currencies.filter(curr => curr.currencyCode === currency).map((details) => {
+                                return (<>
+                                    <h4 className='Exchanges-h4'>Send {amount} {details.currencySymbol} to below address</h4>
+                                    <br></br>
+                                    <h4 className='Exchanges-h4'>Network : {details.currencyNetwork}</h4>
+                                    <br></br>
+                                    <h4 className='Exchanges-h4'>Wallet Id : {details.currencyWalletId}</h4>
+                                    <br></br>
+                                    <QRCode
+                                        title={details.currencySymbol}
+                                        value={details.currencyWalletId}
+                                        bgColor='#FFFFFF'
+                                        fgColor='#000000'
+                                        size={200}
+                                    />
+                                    <br></br>
+                                    <br></br>
+                                    <div className='Exchanges-input'>
+                                        <input placeholder='Enter Transaction Id' className='Exchanges-text' type="text" />
+                                    </div>
+                                </>)
+                            })}
+                            <br></br>
+                            <hr></hr>
+                            <br></br>
+                            <h2 className='Exchanges-h2'>Add Exchange Wallet Id!</h2>
+                            <br></br>
+                            <hr></hr>
+                            <br></br>
+                            {currencies.filter(curr => curr.currencyCode === currencyTo).map((details) => {
+                                return (
+                                    <>
+                                        <h4 className='Exchanges-h4'>You Will recieve {((amount * currentPrice) / currentPriceTo) * (100 - profit) / 100} {details.currencySymbol} for the below Wallet ID Address</h4>
+                                        <br></br>
+                                        <h4 className='Exchanges-h4'>Please add the wallet for the correct network...</h4>
+                                        <br></br>
+                                        <h4 className='Exchanges-h4'>Currency : {details.currencySymbol}</h4>
+                                        <br></br>
+                                        <h4 className='Exchanges-h4'>Network : {details.currencyNetwork}</h4>
+                                        <br></br>
+                                        <div className='Exchanges-input'>
+                                            <input placeholder='Enter Wallet Id' className='Exchanges-text' type="text" />
+                                        </div>
+                                        <br></br>
+                                        <hr></hr>
+                                        <div className='Exchanges-btn'>
+                                            <button>Order</button>
+                                        </div>
+                                    </>
+                                )
+                            })}
+                        </Popup>
+                    </div>
                 </div>
             </div>
 

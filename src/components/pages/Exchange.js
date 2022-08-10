@@ -9,7 +9,7 @@ function Exchange({isAuth,setIsAuth}) {
     <>
       <Navbar isAuth={isAuth} setIsAuth={setIsAuth}/>
       <LivePrice isAuth={isAuth} setIsAuth={setIsAuth}/>
-      <Exchanges />
+      <Exchanges isAuth={isAuth}/>
       <Footer />
     </>
   )

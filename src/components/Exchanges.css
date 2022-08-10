@@ -45,3 +45,13 @@
     color: red;
     padding-bottom: 10px;
 }
+
+.Exchanges-btn{
+    background-color: #1f2833;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.Exchanges-button{
+    width: 200px;
+}

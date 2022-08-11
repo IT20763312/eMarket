@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import $ from "jquery";
 import './Exchanges.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
 import { db } from '../Firebase-config';
-import { collection, getDocs, query } from 'firebase/firestore';
+import { addDoc, collection, getDocs, query } from 'firebase/firestore';
 import Popup from '../components/Popup/Exchangespopup';
 import QRCode from 'react-qr-code';
 
@@ -12,6 +12,7 @@ function Exchanges({ isAuth }) {
 
     const [currencies, setCurrencies] = useState([]);
     const [scroll, setScroll] = useState(true);
+    let today = new Date().toLocaleDateString();
 
     const [currentPrice, setCurrentPrice] = useState();
     const [currentPriceTo, setCurrentPriceTo] = useState();
@@ -23,6 +24,9 @@ function Exchanges({ isAuth }) {
     const [maxAmount, setMaxAmount] = useState();
 
     const [amount, setAmount] = useState(0);
+
+    const [transactionId, setTransactionId] = useState("");
+    const [walletId, setWalletId] = useState("");
 
     const [buttonPopup, setButtonPopup] = useState(false);
 
@@ -99,8 +103,46 @@ function Exchanges({ isAuth }) {
         }
     }
 
+    const order = async () => {
+        const auth = getAuth()
+        const user = auth.currentUser;
+        if (isAuth) {
+            if (walletId === "") {
+                alert("Please Enter the Wallet Id");
+            } else if (transactionId === "") {
+                alert("Please Enter the Transaction Id");
+            } else {
+                const uid = user.uid;
+                addDoc(collection(db, "exchangeOrders"), {
+                    uId: uid,
+                    date: Date(today),
+                    amount: Number(amount),
+                    currency: currency,
+                    currencyTo: currencyTo,
+                    recievingAmount: Number(((amount * currentPrice) / currentPriceTo) * (100 - profit) / 100),
+                    walletId: walletId,
+                    transactionId: transactionId,
+                    status: "Pending",
+                }).then(() => {
+                    alert("Exchange ordered Successfully!");
+                    navigate("/myexchangeorders")
+                }).catch((err) => {
+                    alert(err);
+                })
+            }
+        }
+        else {
+            navigate("/login");
+        }
+    }
+
     return (
         <>
+            <div className='Exchanges-L'>
+                <Link className='Exchanges-link' to="/myexchangeorders">
+                    My Exchanges
+                </Link>
+            </div>
             <div className='Exchanges'>
                 <div className='Exchanges-inner'>
                     <h2 className='Exchanges-h2'>Exchanges !</h2>
@@ -185,7 +227,7 @@ function Exchanges({ isAuth }) {
                                     <br></br>
                                     <br></br>
                                     <div className='Exchanges-input'>
-                                        <input placeholder='Enter Transaction Id' className='Exchanges-text' type="text" />
+                                        <input onChange={(event) => setTransactionId(event.target.value)} placeholder='Enter Transaction Id' className='Exchanges-text' type="text" />
                                     </div>
                                 </>)
                             })}
@@ -208,12 +250,12 @@ function Exchanges({ isAuth }) {
                                         <h4 className='Exchanges-h4'>Network : {details.currencyNetwork}</h4>
                                         <br></br>
                                         <div className='Exchanges-input'>
-                                            <input placeholder='Enter Wallet Id' className='Exchanges-text' type="text" />
+                                            <input onChange={(event) => setWalletId(event.target.value)} placeholder='Enter Wallet Id' className='Exchanges-text' type="text" />
                                         </div>
                                         <br></br>
                                         <hr></hr>
                                         <div className='Exchanges-btn'>
-                                            <button>Order</button>
+                                            <button onClick={order}>Order</button>
                                         </div>
                                     </>
                                 )

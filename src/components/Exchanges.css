@@ -1,3 +1,12 @@
+.Exchanges-L{
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+}
+
+.Exchanges-link{
+    background-color: rgba(0,0,0,0.7);
+}
+
 .Exchanges {
     top:0;
     left: 0;

@@ -35,6 +35,8 @@ import Admineditproducts from './Admin components/Admin pages/Admineditproduct';
 import Adminaddinvestmenst from './Admin components/Admin pages/Adminaddinvestments';
 import Admininvestmentorders from './Admin components/Admin pages/Admininvestmentorders';
 import Admininvestmentorderdetails from'./Admin components/Admin pages/Admininvestmentorderdetails';
+import Adminexchangeorders from './Admin components/Admin pages/Adminexchangeorders';
+import Adminexchangeorderdetails from './Admin components/Admin pages/Adminexchangeorderdetails';
 
 function App() {
 
@@ -79,6 +81,8 @@ function App() {
           <Route path='/adminaddinvestments' element={<Adminaddinvestmenst adminAuth={adminAuth}/>}/>
           <Route path='/admininvestmentorders' element={<Admininvestmentorders adminAuth={adminAuth}/>}/>
           <Route path='/admininvestmentorderdetails' element={<Admininvestmentorderdetails adminAuth={adminAuth}/>}/>
+          <Route path='/adminexchangeorders' element={<Adminexchangeorders adminAuth={adminAuth}/>}/>
+          <Route path='/adminexchangeorderdetails' element={<Adminexchangeorderdetails adminAuth={adminAuth}/>}/>
         </Routes>
       </Router>
     </>

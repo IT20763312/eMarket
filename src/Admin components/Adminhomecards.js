@@ -46,6 +46,14 @@ function Adminhomecards() {
             />
           </ul>
         </div>
+        <div className='admin__home__cards__wrapper'>
+          <ul className='admin__home__cards__items'>
+            <AdminHomeCardItems
+              text='Exchange Orders'
+              path='/adminexchangeorders'
+            />
+          </ul>
+        </div>
       </div>
     </div>
   )

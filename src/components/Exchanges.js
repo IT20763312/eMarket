@@ -136,6 +136,14 @@ function Exchanges({ isAuth }) {
         }
     }
 
+    const copyToClipBoard = async copyMe => {
+        try {
+            await navigator.clipboard.writeText(copyMe);
+        } catch (err) {
+            alert(err);
+        }
+    };
+
     return (
         <>
             <div className='Exchanges-L'>
@@ -215,7 +223,7 @@ function Exchanges({ isAuth }) {
                                     <br></br>
                                     <h4 className='Exchanges-h4'>Network : {details.currencyNetwork}</h4>
                                     <br></br>
-                                    <h4 className='Exchanges-h4'>Wallet Id : {details.currencyWalletId}</h4>
+                                    <h4 onClick={() => copyToClipBoard(details.currencyWalletId)} className='Exchanges-h4'>Wallet Id : {details.currencyWalletId}</h4>
                                     <br></br>
                                     <QRCode
                                         title={details.currencySymbol}

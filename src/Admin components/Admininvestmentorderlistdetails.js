@@ -49,6 +49,14 @@ function Admininvestmentorderlistdetails() {
         }
     }
 
+    const copyToClipBoard = async copyMe => {
+        try {
+            await navigator.clipboard.writeText(copyMe);
+        } catch (err) {
+            alert(err);
+        }
+    };
+
     return (
         <>
             {plan.map((invest) => {
@@ -72,7 +80,7 @@ function Admininvestmentorderlistdetails() {
                             <h3 className='Admininvestmentorderlistdetails-h3'>Plan Period : {invest.investmentPlan}</h3>
                             <h3 className='Admininvestmentorderlistdetails-h3'>Interest : {invest.interest}</h3>
                             <h3 className='Admininvestmentorderlistdetails-h3'>Wallet Id : {invest.interestWalletId}</h3>
-                            <h3 className='Admininvestmentorderlistdetails-h3'>Trasaction Id : {invest.transactionId}</h3>&nbsp;<a href='https://www.binance.com/en/my/wallet/history/deposit-crypto' target="_blank" rel="noopener noreferrer">check</a>
+                            <h3 onClick={() => copyToClipBoard(invest.transactionId)} className='Admininvestmentorderlistdetails-h3'>Trasaction Id : {invest.transactionId}</h3>&nbsp;<a href='https://www.binance.com/en/my/wallet/history/deposit-crypto' target="_blank" rel="noopener noreferrer">check</a>
                             <br></br>
                             <hr></hr>
                             <h2 className='Admininvestmentorderlistdetails-h2'>Investment Plan Status</h2>

@@ -162,6 +162,14 @@ function Products({ isAuth }) {
         }
     }
 
+    const copyToClipBoard = async copyMe => {
+        try {
+            await navigator.clipboard.writeText(copyMe);
+        } catch (err) {
+            alert(err);
+        }
+    };
+
     return (
         <>
             {product.map((pro) => {
@@ -319,7 +327,7 @@ function Products({ isAuth }) {
                                                 {currencies.filter(curr => curr.currencySymbol === currencySymbol).map(filteredCurr => (
                                                     <>
                                                         <h3 className='products-h3'>Please send total worth of {(pro.productPrice * qty) + (shippingSelected * qty)} USDT to below Address</h3>
-                                                        <h2 className='products-h2'>{filteredCurr.currencyWalletId}</h2>
+                                                        <h2 onClick={() => copyToClipBoard(filteredCurr.currencyWalletId)} className='products-h2'>{filteredCurr.currencyWalletId}</h2>
                                                         <h2 className='products-h2'>Network : {filteredCurr.currencyNetwork}</h2>
                                                         <div className='products-qr'>
                                                             <QRCode

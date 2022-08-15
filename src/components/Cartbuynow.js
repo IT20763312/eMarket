@@ -111,6 +111,14 @@ function Cartbuynow() {
         }
     }
 
+    const copyToClipBoard = async copyMe => {
+        try {
+            await navigator.clipboard.writeText(copyMe);
+        } catch (err) {
+            alert(err);
+        }
+    };
+
     return (
         <>
             {CartbuynowProducts.map((cartPro) => {
@@ -175,7 +183,7 @@ function Cartbuynow() {
                                 {currencies.filter(curr => curr.currencySymbol === currencySymbol).map(filteredCurr => (
                                     <>
                                         <h3 className='Cartbuynow-h3'>Please send total worth of <b> {(cartPro.productPrice * cartPro.qty) + (cartPro.shippingMethod * cartPro.qty)}</b> USDT to below Address</h3>
-                                        <h2 className='Cartbuynow-h2'>{filteredCurr.currencyWalletId}</h2>
+                                        <h2 onClick={() => copyToClipBoard(filteredCurr.currencyWalletId)} className='Cartbuynow-h2'>{filteredCurr.currencyWalletId}</h2>
                                         <h2 className='products-h2'>Network : {filteredCurr.currencyNetwork}</h2>
                                         <div className='products-qr'>
                                             <QRCode

@@ -82,6 +82,14 @@ function Investmentdetails({ isAuth }) {
         }
     }
 
+    const copyToClipBoard = async copyMe => {
+        try {
+            await navigator.clipboard.writeText(copyMe);
+        } catch (err) {
+            alert(err);
+        }
+    };
+
     return (
         <>
             {plan.map((invest) => {
@@ -135,7 +143,7 @@ function Investmentdetails({ isAuth }) {
                                         <h3 className='Investmentdetails-h3'>Amount : {invest.investAmount}</h3>
                                         <h3 className='Investmentdetails-h3'>Currency Name : {curr.currencyName}</h3>
                                         <h3 className='Investmentdetails-h3'>Network : {curr.currencyNetwork}</h3>
-                                        <h3 className='Investmentdetails-h3'>Wallet ID : {curr.currencyWalletId}</h3>
+                                        <h3 onClick={() => copyToClipBoard(curr.currencyWalletId)} className='Investmentdetails-h3'>Wallet ID : {curr.currencyWalletId}</h3>
                                         <div className='Investmentdetails-qr'>
                                             <QRCode
                                                 title={curr.currencySymbol}

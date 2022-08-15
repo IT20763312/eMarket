@@ -1,5 +1,5 @@
 .categorywiseproductlist-search {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,8 +7,9 @@
   }
   
   .categorywiseproductlist-text {
-    margin-bottom: 32px;
+    margin-bottom: 12px;
     text-align: center;
+    padding-top: 10px;
   }
   
   .categorywiseproductlist-input {
@@ -49,6 +50,25 @@
       width: 100%;
       display: block;
       margin-bottom: 20px;
+    }
+
+    .categorywiseproductlist-search {
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    
+    .categorywiseproductlist-search {
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
   

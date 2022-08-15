@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { db } from '../Firebase-config';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection,orderBy,query } from 'firebase/firestore';
 import './Itemcategories.css'
 
 function Itemcategories() {
@@ -9,7 +9,7 @@ function Itemcategories() {
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState("");
 
-  const categoriesCollectionRef = collection(db, "categories");
+  const categoriesCollectionRef = query(collection(db, "categories"),orderBy("categoryName","asc"));
 
   useEffect(() => {
     const getCategories = async () => {

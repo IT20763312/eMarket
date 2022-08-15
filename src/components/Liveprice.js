@@ -8,10 +8,10 @@ import { auth } from "../Firebase-config";
 
 function Liveprice({ isAuth, setIsAuth }) {
 
-
   const navigate = useNavigate();
 
   useEffect(() => {
+
     var btc = document.getElementById("bitcoin");
     var eth = document.getElementById("ethereum");
     var ltc = document.getElementById("litecoin");
@@ -97,9 +97,11 @@ function Liveprice({ isAuth, setIsAuth }) {
             </Link>
           </>
         ) : (
-          <div className="signup-button">
-            <button onClick={logOut}>Log Out</button>
-          </div>
+          <>
+            <div className="signup-button">
+              <button onClick={logOut}>Log Out</button>
+            </div>
+          </>
         )}
       </div>
     </div>

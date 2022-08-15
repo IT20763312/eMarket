@@ -70,7 +70,7 @@ function Adminmarketplaceorderlistdetails() {
                             <br></br>
                             <label className='Adminmarketplaceorderlistdetails-label'>Total : {order.total} USDT</label>
                             <br></br>
-                            <label className='Adminmarketplaceorderlistdetails-label'>Transaction ID : {order.transactionId}</label>
+                            <label className='Adminmarketplaceorderlistdetails-label'>Transaction ID : {order.transactionId}</label>&nbsp;<a href='https://www.binance.com/en/my/wallet/history/deposit-crypto' target="_blank" rel="noopener noreferrer">check</a>
                             <br></br>
                             <label className='Adminmarketplaceorderlistdetails-label'>User ID : {order.uId}</label>
                             <br></br>
@@ -78,7 +78,7 @@ function Adminmarketplaceorderlistdetails() {
                             <br></br>
                             <label className='Adminmarketplaceorderlistdetails-label'>Variation : {order.variation}</label>
                             <br></br>
-                            <label className='Adminmarketplaceorderlistdetails-label'>Ali Link : {order.aliLink}</label>
+                            <label className='Adminmarketplaceorderlistdetails-label'>Ali Link : {order.aliLink}</label>&nbsp;<a href={order.aliLink} target="_blank" rel="noopener noreferrer">Go</a>
                             <br></br>
                             <br></br>
                             <hr></hr>

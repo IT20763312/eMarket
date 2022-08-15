@@ -58,7 +58,7 @@ function Adminexchangeorderlistdetails() {
                             <h3 className='Adminexchangeorderlistdetails-h3'>User ID : {ex.uId}</h3>
                             <h3 className='Adminexchangeorderlistdetails-h3'>Exchange ID : {ex.id}</h3>
                             <h3 className='Adminexchangeorderlistdetails-h3'>Date : {ex.date}</h3>
-                            <h3 className='Adminexchangeorderlistdetails-h3'>Transaction ID : {ex.transactionId}</h3>
+                            <h3 className='Adminexchangeorderlistdetails-h3'>Transaction ID : {ex.transactionId}</h3>&nbsp;<a href='https://www.binance.com/en/my/wallet/history/deposit-crypto' target="_blank" rel="noopener noreferrer">check</a>
                             <h3 className='Adminexchangeorderlistdetails-h3'>Wallet ID : {ex.walletId}</h3>
                             <br></br>
                             <hr></hr>

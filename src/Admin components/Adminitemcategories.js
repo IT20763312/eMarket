@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { db } from '../Firebase-config';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection,query,orderBy } from 'firebase/firestore';
 import './Adminitemcategories.css'
 
 function Adminitemcategories() {
@@ -9,7 +9,7 @@ function Adminitemcategories() {
     const [categories, setCategories] = useState([]);
     const [search, setSearch] = useState("");
 
-    const categoriesCollectionRef = collection(db, "categories");
+    const categoriesCollectionRef = query(collection(db, "categories"),orderBy("categoryName"));
 
     useEffect(() => {
         const getCategories = async () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Adminmanagecategories.css';
 import { db } from '../Firebase-config';
-import { addDoc, collection, getDocs, updateDoc, doc } from 'firebase/firestore';
+import { addDoc, collection, getDocs, updateDoc, doc,query,orderBy } from 'firebase/firestore';
 
 
 function Adminmanagecategories() {
@@ -13,7 +13,7 @@ function Adminmanagecategories() {
 
     const [editableCategories, setEditableCategories] = useState([])
 
-    const categoriesCollectionRef = collection(db, "categories");
+    const categoriesCollectionRef = query(collection(db, "categories"),orderBy("categoryName"));
 
     const addCategories = async () => {
         await addDoc(categoriesCollectionRef, { categoryName: category });

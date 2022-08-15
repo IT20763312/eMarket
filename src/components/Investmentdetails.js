@@ -8,6 +8,8 @@ import QRCode from 'react-qr-code';
 
 function Investmentdetails({ isAuth }) {
 
+    let today = new Date().toLocaleDateString();
+
     let navigate = useNavigate();
     const location = useLocation();
     const [scroll,setScroll] = useState(true);
@@ -55,6 +57,7 @@ function Investmentdetails({ isAuth }) {
                 alert("Please Enter The Transaction ID")
             }else{
                 addDoc(collection(db,"investmentOrders"),{
+                    date:Date(today),
                     Uid:uid,
                     investmentId: id,
                     investmentPlan: investmentPlan,

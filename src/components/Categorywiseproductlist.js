@@ -40,7 +40,7 @@ function Categorywiseproductlist() {
       <div className="categorywiseproductlist-search">
         <br></br>
         <br></br>
-        <h1 className="categorywiseproductlist-text">Search a Product</h1>
+        <h1 className="categorywiseproductlist-text">Search a Product&nbsp;&nbsp;</h1>
 
         <input type="text" placeholder="Search" className="categorywiseproductlist-input" onChange={(event) => { setSearch(event.target.value); }} />
 

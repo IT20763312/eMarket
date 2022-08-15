@@ -75,6 +75,15 @@ button:hover {
     top: 80px;
 }
 
+.login-button-p{
+    padding-top: 25px;
+    padding-left: 7px;
+    position: absolute;
+    right: 145px;
+    top: 80px;
+    text-align: center;
+}
+
 button{
     width: 120px;
     height: 50px;
@@ -104,3 +113,4 @@ button:hover {
         display: none;
     }
 }
+

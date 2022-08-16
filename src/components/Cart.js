@@ -10,6 +10,9 @@ function Cart() {
     const [scroll, setScroll] = useState(true);
 
     const [myCartProducts, setMyCartProducts] = useState([]);
+    const [search, setSearch] = useState("");
+
+    const filteredOrders = myCartProducts.filter(or => or.productName.toLowerCase().includes(search.toLowerCase()));
 
     useEffect(() => {
 
@@ -27,7 +30,7 @@ function Cart() {
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             setScroll(false);
         }
-    },[scroll])
+    }, [scroll])
 
     let navigate = useNavigate();
 
@@ -42,13 +45,20 @@ function Cart() {
 
     }
 
-    const set = (id) =>{
-      navigate('/mycartbuynow', { state: { cartID: id } });
+    const set = (id) => {
+        navigate('/mycartbuynow', { state: { cartID: id } });
     }
 
     return (
         <>
-            {myCartProducts.map((cartPro) => {
+            <h1 className='adminmarketplaceorderslist-h1'>My Cart</h1>
+            <br></br>
+            <div className='adminmarketplaceorderslist-filter'>
+                <input onChange={(e) => setSearch(e.target.value)} placeholder="Search by Product Name" type="text" />
+                <br></br>
+                <br></br>
+            </div>
+            {filteredOrders.map((cartPro) => {
                 return (
                     <>
                         <div className='mycart-column'>
@@ -59,8 +69,8 @@ function Cart() {
                                 </div>
                                 <div className='mycart-h2andh3andbutton'>
                                     <>
-                                            <h2 className='mycart-h2'>{cartPro.productName}</h2>
-                                            <h3 className='mycart-h3'>{cartPro.productPrice} &nbsp;USDT</h3>
+                                        <h2 className='mycart-h2'>{cartPro.productName}</h2>
+                                        <h3 className='mycart-h3'>{cartPro.productPrice} &nbsp;USDT</h3>
                                     </>
                                     <h3 className='mycart-h3'>Quantity&nbsp; = &nbsp; {cartPro.qty}</h3>
                                     <h3 className='mycart-h3'>Shipping&nbsp; = &nbsp; {cartPro.shippingMethod} &nbsp; USDT</h3>

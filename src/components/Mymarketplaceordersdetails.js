@@ -21,7 +21,7 @@ function Mymarketplaceordersdetailsdetails() {
         }
         getOrders();
         if (scroll === true) {
-            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 10, left: 0, behavior: 'smooth' });
             setScroll(false);
         }
     },[scroll,q1])

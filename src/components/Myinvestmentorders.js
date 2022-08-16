@@ -10,14 +10,25 @@ function Myinvestmentorders() {
     const [scroll, setScroll] = useState(true);
 
     const [myOrdersInvestments, setMyOrdersInvestments] = useState([]);
+    const [order, setOrder] = useState("All");
+
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    var ref;
+
+    if (order === "All") {
+        const ordersCollectionRef = query(collection(db, "investmentOrders"), where("Uid", "==", user.uid));
+        ref = ordersCollectionRef;
+    } else {
+        const ordersCollectionRef = query(collection(db, "investmentOrders"), where("Uid", "==", user.uid), where("investmentPlanStatus", "==", order));
+        ref = ordersCollectionRef;
+    }
 
     useEffect(() => {
 
         const getOrders = async () => {
-            const auth = getAuth();
-            const user = auth.currentUser;
-            const q1 = query(collection(db, "investmentOrders"), where("Uid", "==", user.uid));
-            const data = await getDocs(q1);
+            const data = await getDocs(ref);
             setMyOrdersInvestments(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         }
         getOrders();
@@ -26,15 +37,26 @@ function Myinvestmentorders() {
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             setScroll(false);
         }
-    }, [scroll])
+    }, [scroll, ref])
 
     const navigate = useNavigate();
-    const set = (id) =>{
-      navigate('/myinvestmentorderdetails', { state: { investmentID: id} });
+    const set = (id) => {
+        navigate('/myinvestmentorderdetails', { state: { investmentID: id } });
     }
 
     return (
         <>
+            <h1 className='Admininvestmentorderslist-h1'>Investment Orders</h1>
+            <br></br>
+            <div className='adminmarketplaceorderslist-filter'>
+                <select onChange={(e) => setOrder(e.target.value)}>
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Payment Confirmed">Payment Confirmed</option>
+                    <option value="Active">Active</option>
+                    <option value="Plan Over">Plan Over</option>
+                </select>
+            </div>
             <div className='Myinvestmentorders-row'>
                 {myOrdersInvestments.map((Orders) => {
                     return (

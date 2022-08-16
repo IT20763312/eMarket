@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../Firebase-config';
-import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import './Adminmarketplaceorderslist.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,11 +14,11 @@ function Adminmarketplaceorderslist() {
 
     var ref;
 
-    if(order==="All"){
-        const ordersCollectionRef = query(collection(db, "marketplaceOrders"),orderBy("date"));
+    if (order === "All") {
+        const ordersCollectionRef = query(collection(db, "marketplaceOrders"));
         ref = ordersCollectionRef;
     } else {
-        const ordersCollectionRef = query(collection(db, "marketplaceOrders"), where("orderStatus", "==", order),orderBy("date"));
+        const ordersCollectionRef = query(collection(db, "marketplaceOrders"), where("orderStatus", "==", order));
         ref = ordersCollectionRef;
     }
 
@@ -44,6 +44,8 @@ function Adminmarketplaceorderslist() {
 
     return (
         <>
+            <h1 className='adminmarketplaceorderslist-h1'>Marketplace Orders</h1>
+            <br></br>
             <div className='adminmarketplaceorderslist-filter'>
                 <select onChange={(e) => setOrder(e.target.value)}>
                     <option value="All">All</option>
@@ -55,7 +57,7 @@ function Adminmarketplaceorderslist() {
                     <option value="Order Recieved Confirmed">Order Recieved Confirmed</option>
                 </select>
                 &nbsp;
-                <input onChange={(e)=>setSearch(e.target.value)} placeholder="Search Order ID" type="text"/>
+                <input onChange={(e) => setSearch(e.target.value)} placeholder="Search Order ID" type="text" />
             </div>
             <div className='adminmarketplaceorderslist-main'>
                 <table className='adminmarketplaceorderslist-table'>

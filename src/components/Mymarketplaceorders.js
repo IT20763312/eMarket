@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Mymarketplaceorders.css';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { db } from '../Firebase-config';
 import { getAuth } from 'firebase/auth';
 import { collection, getDocs, query, where } from 'firebase/firestore';
@@ -9,15 +9,26 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 function Mymarketplaceorders() {
 
     const [myOrdersProducts, setMyOrdersProducts] = useState([]);
+    const [order, setOrder] = useState("All");
 
     const [scroll, setScroll] = useState(true);
 
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    var ref;
+
+    if (order === "All") {
+        const ordersCollectionRef = query(collection(db, "marketplaceOrders"), where("uId", "==", user.uid));
+        ref = ordersCollectionRef;
+    } else {
+        const ordersCollectionRef = query(collection(db, "marketplaceOrders"), where("uId", "==", user.uid), where("orderStatus", "==", order));
+        ref = ordersCollectionRef;
+    }
+
     useEffect(() => {
         const getOrders = async () => {
-            const auth = getAuth();
-            const user = auth.currentUser;
-            const q1 = query(collection(db, "marketplaceOrders"), where("uId", "==", user.uid));
-            const data = await getDocs(q1);
+            const data = await getDocs(ref);
             setMyOrdersProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         }
         getOrders();
@@ -25,15 +36,30 @@ function Mymarketplaceorders() {
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             setScroll(false);
         }
-    },[scroll])
+    }, [scroll, ref])
 
     const navigate = useNavigate();
-    const set = (id) =>{
-      navigate('/mymarketplaceordersdetails', { state: { orderID: id} });
+    const set = (id) => {
+        navigate('/mymarketplaceordersdetails', { state: { orderID: id } });
     }
 
     return (
         <>
+            <h1 className='adminmarketplaceorderslist-h1'>My Orders</h1>
+            <br></br>
+            <div className='adminmarketplaceorderslist-filter'>
+                <select onChange={(e) => setOrder(e.target.value)}>
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Payment Confirmed">Payment Confirmed</option>
+                    <option value="Order Confirmed">Order Confirmed</option>
+                    <option value="Ready to Ship">Ready to Ship</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Order Recieved Confirmed">Order Recieved Confirmed</option>
+                </select>
+                <br></br>
+                <br></br>
+            </div>
             {myOrdersProducts.map((Orders) => {
 
                 return (
@@ -57,7 +83,7 @@ function Mymarketplaceorders() {
                                     <h3 className='mymarketplaceorders-h3'>Total&nbsp; = &nbsp; {Orders.total}&nbsp; USDT</h3>
                                     <h3 className='mymarketplaceorders-h3'>Order Status&nbsp; : &nbsp; {Orders.orderStatus}</h3>
                                     <div className='mymarketplaceorders-viewbuttonandbuynowbutton'>
-                                        <button onClick={()=>set(Orders.id)}>View</button>
+                                        <button onClick={() => set(Orders.id)}>View</button>
                                     </div>
                                 </div>
                             </div>

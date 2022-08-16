@@ -36,7 +36,6 @@ function Footer() {
                         <Link to='/'><h2>MarketPlace</h2></Link>
                         <Link to='/'>My cart</Link>
                         <Link to='/'>My orders</Link>
-                        <Link to='/'>My coupons</Link>
                     </div>
                     <div class='footer-link-items'>
                         <Link to='/'><h2>Exchanges</h2></Link>

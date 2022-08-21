@@ -178,7 +178,7 @@ function Cartbuynow() {
                                     })}
                                 </select>
                             </div>
-                            <div>
+                            <div> 
 
                                 {currencies.filter(curr => curr.currencySymbol === currencySymbol).map(filteredCurr => (
                                     <>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider, facebookProvider, twitterProvider } from '../Firebase-config';
+import { auth, googleProvider, facebookProvider } from '../Firebase-config';
 import './Signupform.css';
 import { Link } from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
@@ -57,18 +57,6 @@ function Signupform({setIsAuth}) {
         })
     }
 
-    const twitterRegister = () =>{
-        signInWithPopup(auth,twitterProvider).then(()=>{
-            setIsAuth(true);
-            localStorage.setItem("isAuth",true);
-            navigate("/");
-        })
-        .catch((error)=>{
-            const errorMessage = error.message;
-            alert(errorMessage);
-        })
-    }
-
     return (
         
             <div className="signup-form-main">
@@ -101,12 +89,6 @@ function Signupform({setIsAuth}) {
                                 </div>
                                 <div className='signup-single-logos'>
                                     <img alt='' onClick={facebookRegister} src={process.env.PUBLIC_URL + "Logos/FacebookLogo.png"}></img>
-                                </div>
-                                <div className='signup-single-logos'>
-                                    <img alt='' src={process.env.PUBLIC_URL + "Logos/AppleLogo.jpg"}></img>
-                                </div>
-                                <div className='signup-single-logos4'>
-                                    <img alt='' onClick={twitterRegister} src={process.env.PUBLIC_URL + "Logos/TwitterLogo.png"}></img>
                                 </div>
                             </div>
                             <p className="signup-form-link">

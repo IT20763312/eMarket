@@ -3,7 +3,7 @@ import './Loginform.css';
 import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider, facebookProvider, twitterProvider } from '../Firebase-config';
+import { auth, googleProvider, facebookProvider } from '../Firebase-config';
 import { useState } from 'react';
 
 function Loginform({setIsAuth}) {
@@ -55,18 +55,6 @@ function Loginform({setIsAuth}) {
         })
     }
 
-    const twitterRegister = () =>{
-        signInWithPopup(auth,twitterProvider).then(()=>{
-            setIsAuth(true);
-            localStorage.setItem("isAuth",true);
-            navigate("/");
-        })
-        .catch((error)=>{
-            const errorMessage = error.message;
-            alert(errorMessage);
-        })
-    }
-
     return (
         <div className="login-form-main">
             <div className="login-form-sub-main">
@@ -96,12 +84,6 @@ function Loginform({setIsAuth}) {
                                 </div>
                                 <div className='login-single-logos'>
                                     <img alt='' onClick={facebookRegister} src={process.env.PUBLIC_URL + "Logos/FacebookLogo.png"}></img>
-                                </div>
-                                <div className='login-single-logos'>
-                                    <img alt='' src={process.env.PUBLIC_URL + "Logos/AppleLogo.jpg"}></img>
-                                </div>
-                                <div className='login-single-logos4'>
-                                    <img alt='' onClick={twitterRegister} src={process.env.PUBLIC_URL + "Logos/TwitterLogo.png"}></img>
                                 </div>
                             </div>
                         <p className="login-form-link">

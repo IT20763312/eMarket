@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
+import { db } from '../Firebase-config'
+import { addDoc, collection } from 'firebase/firestore';
 
 function Footer() {
+
+    const [email, setEmail] = useState("");
+    const [recomandation, setRecomandation] = useState("");
+
+    const recomandsCollectionRef = collection(db, "recomandations");
+
+    const addRecomandation = async () => {
+        
+        if (email === "") {
+            alert("Please enter the email !");
+        } else if (recomandation === "") {
+            alert("Please enter anything without blank !");
+        } else {
+            await addDoc(recomandsCollectionRef, { email: email, recomandation: recomandation, read:"False" }).then((re) => {
+                alert("Thankyou for the recomandation !");
+            });
+
+        }
+    }
+
     return (
         <div className='footer-container'>
             <section className='footer-subscription'>
@@ -13,21 +35,25 @@ function Footer() {
                     Any recomandations ?.
                 </p>
                 <div className='input-areas'>
-                    <form>
-                        <input
-                            className='footer-input'
-                            name='email'
-                            type='email'
-                            placeholder='Your Email'
-                        /><br></br>
-                        <input
-                            className='footer-input'
-                            name='recomandation'
-                            type='text'
-                            placeholder='Your Recomandation'
-                        /><br></br>
-                        <button>Enter</button>
-                    </form>
+
+                    <input
+                        onChange={(e) => setEmail(e.target.value)}
+                        className='footer-input'
+                        name='email'
+                        type='email'
+                        placeholder='Your Email'
+                        defaultValue={email}
+                    /><br></br>
+                    <textarea
+                        onChange={(e) => setRecomandation(e.target.value)}
+                        className='footer-input'
+                        name='recomandation'
+                        type='text'
+                        placeholder='Your Recomandation'
+                        defaultValue={recomandation}
+                    /><br></br>
+                    <button onClick={addRecomandation}>Enter</button>
+
                 </div>
             </section>
             <div class='footer-links'>

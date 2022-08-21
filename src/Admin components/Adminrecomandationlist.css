@@ -1,0 +1,40 @@
+.Adminrecomandationlist-filter{
+    text-align: center;
+}
+
+.Adminrecomandationlist-main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.Adminrecomandationlist-table {
+    border: 1px solid white;
+    width: 95%;
+    max-width: 1500px;
+}
+
+.Adminrecomandationlist-th {
+    border-bottom: 1px solid white;
+    height: 25px;
+}
+
+.Adminrecomandationlist-td {
+    text-align: center;
+}
+
+.Adminrecomandationlist-h2 {
+    background-color: #1f2833;
+    padding-bottom: 10px;
+}
+
+.Adminrecomandationlist-label {
+    background-color: #1f2833;
+    font-size: 25px;
+}
+
+.Adminrecomandationlist-h1{
+    padding-top: 20px;
+}

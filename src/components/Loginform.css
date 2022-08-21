@@ -101,6 +101,7 @@ input {
     padding-top: 25px;
     display:flex;
     align-content: center;
+    padding-left: 90px;
 }
 
 .login-single-logos{

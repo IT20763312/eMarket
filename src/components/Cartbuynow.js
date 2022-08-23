@@ -5,10 +5,13 @@ import { getAuth } from 'firebase/auth';
 import { db } from '../Firebase-config';
 import { useNavigate, useLocation } from 'react-router-dom';
 import QRCode from 'react-qr-code';
+import useGeoLocation from 'react-ipgeolocation';
 
 function Cartbuynow() {
 
     let today = new Date().toLocaleDateString();
+
+    const geoCountry = useGeoLocation();
 
     const location = useLocation();
     const [scroll, setScroll] = useState(true);
@@ -133,7 +136,7 @@ function Cartbuynow() {
                             </div>
                             <br></br>
                             <div className='Cartbuynow-input'>
-                                <input required type='text' placeholder='Country' onChange={(event) => (setCountry(event.target.value))}></input>
+                                <input defaultValue={geoCountry.country} required type='text' placeholder='Country' onChange={(event) => (setCountry(event.target.value))}></input>
                             </div>
                             <div className='Cartbuynow-contactnumberandname'>
                                 <div className='Cartbuynow-input'>

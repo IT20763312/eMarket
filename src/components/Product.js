@@ -6,10 +6,12 @@ import { getAuth } from 'firebase/auth';
 import './Product.css';
 import Buynowpopup from './Popup/Buynowpopup';
 import QRCode from 'react-qr-code';
+import useGeoLocation from 'react-ipgeolocation';
 
 function Products({ isAuth }) {
 
     const location = useLocation();
+    const geoCountry = useGeoLocation();
     let navigate = useNavigate();
     let today = new Date().toLocaleDateString();
 
@@ -277,7 +279,7 @@ function Products({ isAuth }) {
                                             </div>
                                             <br></br>
                                             <div className='products-inputs'>
-                                                <input required type='text' placeholder='Country' onChange={(event) => (setCountry(event.target.value))}></input>
+                                                <input defaultValue={geoCountry.country} required type='text' placeholder='Country' onChange={(event) => (setCountry(event.target.value))}></input>
                                             </div>
                                             <div className='products-contactnumberandname'>
                                                 <div className='products-inputs'>

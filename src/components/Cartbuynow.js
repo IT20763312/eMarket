@@ -19,7 +19,7 @@ function Cartbuynow() {
     const [CartbuynowProducts, setCartbuynowProducts] = useState([]);
     const [currencies, setCurrencies] = useState([]);
 
-    const [country, setCountry] = useState("");
+    const [country, setCountry] = useState(geoCountry.country);
     const [name, setName] = useState("");
     const [telephoneNumber, setTelephoneNumber] = useState(0);
     const [street, setStreet] = useState("");
@@ -135,6 +135,7 @@ function Cartbuynow() {
                                 <h3 className='Cartbuynow-h3'>Shipping Details</h3>
                             </div>
                             <br></br>
+                            <h4 className='Cartbuynow-h4'>Country Based on IP Location</h4>
                             <div className='Cartbuynow-input'>
                                 <input defaultValue={geoCountry.country} required type='text' placeholder='Country' onChange={(event) => (setCountry(event.target.value))}></input>
                             </div>

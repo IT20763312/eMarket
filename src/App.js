@@ -6,6 +6,7 @@ import Livelist from './components/pages/Livelist';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 import Forgetpassword from './components/pages/Forgetpassword';
+import Resetpassword from './components/pages/Resetpassword';
 import Categories from './components/pages/Categories';
 import Productlist from './components/pages/Productlist';
 import Product from './components/pages/Product';
@@ -54,6 +55,7 @@ function App() {
           <Route path='/login' element={<Login setIsAuth={setIsAuth}/>}/>
           <Route path='/signup' element={<Signup setIsAuth={setIsAuth}/>}/>
           <Route path='/forgetpassword' element={<Forgetpassword/>}/>
+          <Route path='/resetpassword' element={<Resetpassword/>}/>
           <Route path='/categories' element={<Categories isAuth={isAuth} setIsAuth={setIsAuth} />}/>
           <Route path='/productlist' element={<Productlist isAuth={isAuth} setIsAuth={setIsAuth} />}/>
           <Route path='/products' element={<Product isAuth={isAuth} setIsAuth={setIsAuth}/> } />

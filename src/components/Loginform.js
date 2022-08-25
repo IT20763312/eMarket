@@ -1,6 +1,5 @@
 import React from 'react';
 import './Loginform.css';
-import {Link} from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider, facebookProvider } from '../Firebase-config';
@@ -87,7 +86,7 @@ function Loginform({setIsAuth}) {
                                 </div>
                             </div>
                         <p className="login-form-link">
-                            <a className='login-form-a' href="#">Forgot password ?</a> Or <Link to='/signup'><a className='login-form-a'>Sign Up ?</a></Link>
+                            <a className='login-form-a' href="/forgetpassword">Forgot password ?</a> Or <a href='/signup' className='login-form-a'>Sign Up ?</a>
                         </p>
 
 

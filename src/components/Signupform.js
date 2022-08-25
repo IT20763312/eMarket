@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider, facebookProvider } from '../Firebase-config';
 import './Signupform.css';
-import { Link } from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
 
 
@@ -21,10 +20,8 @@ function Signupform({setIsAuth}) {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
-            localStorage.setItem("isAuth", true);
-            setIsAuth(true);
             alert("Successfully created an account!");
-            navigate("/");
+            navigate("/login");
         })
         .catch((error) => {
             //const errorCode = error.code;
@@ -92,7 +89,7 @@ function Signupform({setIsAuth}) {
                                 </div>
                             </div>
                             <p className="signup-form-link">
-                                Doesn't have an account <Link to='/login'><a className='signup-form-a'>Login ?</a></Link>
+                                Doesn't have an account <a href='/login' className='signup-form-a'>Login ?</a>
                             </p>
 
 

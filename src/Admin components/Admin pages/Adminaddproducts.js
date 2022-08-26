@@ -5,7 +5,7 @@ import Adminaddproduct from '../Adminaddproduct';
 function Adminaddproducts({adminAuth}) {
   return (
     <>
-{adminAuth?(
+{adminAuth  || localStorage.getItem("adminAuth", true) ?(
     <>
     <AdminNavBar/>
     <Adminaddproduct/>

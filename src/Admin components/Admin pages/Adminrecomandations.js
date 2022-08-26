@@ -5,7 +5,7 @@ import List from '../Adminrecomandationlist';
 function Adminrecomandations({adminAuth}) {
     return (
         <>
-        {adminAuth?(
+        {adminAuth || localStorage.getItem("adminAuth", true) ?(
           <>
           <Navbar/>
           <List/>

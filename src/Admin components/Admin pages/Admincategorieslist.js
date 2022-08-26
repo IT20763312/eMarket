@@ -5,7 +5,7 @@ import CategoriesList from '../Adminitemcategories';
 function Admincategorieslist({adminAuth}) {
   return (
     <>
-    {adminAuth?(
+    {adminAuth  || localStorage.getItem("adminAuth", true) ?(
       <>
       <AdminNavBar/>
       <CategoriesList/>

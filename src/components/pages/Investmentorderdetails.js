@@ -7,7 +7,7 @@ import Details from '../Myinvestmentorderdetails';
 function Investmentorderdetails({isAuth,setIsAuth}) {
   return (
     <>
-      {isAuth ? (
+      {isAuth || localStorage.getItem("isAuth",true) ? (
                 <>
                     <Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
                     <LivePrice isAuth={isAuth} setIsAuth={setIsAuth} />

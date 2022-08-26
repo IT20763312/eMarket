@@ -5,7 +5,7 @@ import Adminexchangeorderslist from '../Adminexchangeorderslist';
 function Adminexchangeorders({ adminAuth }) {
     return (
         <>
-            {adminAuth ? (
+            {adminAuth  || localStorage.getItem("adminAuth", true) ? (
                 <>
                     <Adminnavbar />
                     <Adminexchangeorderslist />

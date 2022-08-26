@@ -5,7 +5,7 @@ import ManageCategories from '../Adminmanagecategories';
 function Admincategories({adminAuth}) {
   return (
     <>
-    {adminAuth?(
+    {adminAuth  || localStorage.getItem("adminAuth", true) ?(
       <>
       <AdminNavBar/>
       <ManageCategories/>

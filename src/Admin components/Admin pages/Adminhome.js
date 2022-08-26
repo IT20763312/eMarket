@@ -6,7 +6,7 @@ function Adminhome({adminAuth}) {
 
   return (
     <>
-    {adminAuth?(
+    {adminAuth  || localStorage.getItem("adminAuth", true) ?(
       <>
       <AdminNavBar/>
       <Adminhomecards/>

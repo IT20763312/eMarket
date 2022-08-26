@@ -6,7 +6,7 @@ function Adminmarketplaceorderdetails({adminAuth}) {
   return (
     <>
       <>
-      {adminAuth ? (
+      {adminAuth  || localStorage.getItem("adminAuth", true) ? (
                 <>
                     <Adminnavbar />
                     <Adminmarketplaceorderlistdetails />

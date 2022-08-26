@@ -5,7 +5,7 @@ import ManageCurrencies from '../Adminmanagecurrencies';
 function Admincurrencies({ adminAuth }) {
     return (
         <>
-            {adminAuth ? (
+            {adminAuth || localStorage.getItem("adminAuth", true) ? (
                 <>
                     <AdminNavBar />
                     <ManageCurrencies />

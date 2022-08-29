@@ -1,0 +1,53 @@
+.Marketplacereviews-row {
+    margin: 0 -5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-right: 10px;
+  }
+  
+  .Marketplacereviews-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .Marketplacereviews-column {
+    float: left;
+    width: 100%;
+    padding: 10px 10px;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .Marketplacereviews-column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .Marketplacereviews-card {
+    box-shadow: 0 4px 8px 0 #0b0c10;
+    padding: 16px;
+    text-align: center;
+    background-color:#1f2833;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .Marketplacereviews-card:hover{
+    border-bottom: 4px solid #fff;
+    transition: all 0.2s ease-out;
+  }
+  
+  .Marketplacereviews-h3{
+    background-color: #1f2833;
+    color: white;
+  }
+
+  .Marketplacereviews-h1{
+    color: white;
+    padding-top: 20px;
+    text-align: center;
+  }

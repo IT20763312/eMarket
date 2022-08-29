@@ -36,7 +36,7 @@ function Liveprice({ isAuth, setIsAuth }) {
 
   const logOut = () => {
     signOut(auth).then(() => {
-      localStorage.clear();
+      localStorage.setItem("isAuth", false);
       setIsAuth(false);
       navigate("/");
     });
@@ -80,29 +80,25 @@ function Liveprice({ isAuth, setIsAuth }) {
           </Link>
         </div>
 
-        {!isAuth ? (
-          <>
-            <Link to='/login'>
-              <div className="login-button">
-
-                <button>Login</button>
-
-              </div>
-            </Link>
-
-            <Link to='/signup'>
-              <div className="signup-button">
-                <button>Sign-up</button>
-              </div>
-            </Link>
-          </>
-        ) : (
+        {isAuth ? (
           <>
             <div className="signup-button">
               <button onClick={logOut}>Log Out</button>
             </div>
           </>
-        )}
+        ) : (<>
+          <Link to='/login'>
+            <div className="login-button">
+              <button>Login</button>
+            </div>
+          </Link>
+
+          <Link to='/signup'>
+            <div className="signup-button">
+              <button>Sign-up</button>
+            </div>
+          </Link>
+        </>)}
       </div>
     </div>
   );

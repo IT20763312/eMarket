@@ -79,20 +79,7 @@ function Adminaddproduct() {
             aliLink: aliexpressLink
         })
             .then(() => {
-                setCategory("");
-                setTitle("");
-                setImages([]);
-                setUrls([]);
-                setDescription("");
-                setProductPrice(0);
-                setShippingOptionOne("");
-                setShippingOptionOnePrice(0);
-                setShippingOptionTwo("");
-                setShippingOptionTwoPrice(0);
-                setShippingOptionThree("");
-                setShippingOptionThreePrice(0);
-                setVariations("");
-                setAliexpressLink("");
+                alert("Product Added");
             })
             .catch((err) => {
                 alert(err);

@@ -97,7 +97,6 @@ function Products({ isAuth }) {
         else {
             navigate("/login")
         }
-
     }
 
     const order = async (productId, total, image, productName, link) => {

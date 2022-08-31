@@ -42,7 +42,6 @@ function Cart() {
         }).catch((err) => {
             alert(err)
         })
-
     }
 
     const set = (id) => {

@@ -43,7 +43,7 @@ function Myexchangeorderdetails() {
               <hr></hr>
               <br></br>
               <h3 className='Myexchangeorderdetails-h3'>Transaction ID : {ex.transactionId}</h3>
-              <h3 className='Myexchangeorderdetails-h3'>Currency To : {ex.walletId}</h3>
+              <h3 className='Myexchangeorderdetails-h3'>Wallet ID : {ex.walletId}</h3>
               <br></br>
               <hr></hr>
               <h2 className='Myexchangeorderdetails-h2'>Exchange Status</h2>

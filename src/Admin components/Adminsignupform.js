@@ -1,7 +1,7 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import './Adminsignupform.css';
 import { db } from '../Firebase-config';
-import {addDoc,collection} from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 
 function Adminsignupform() {
 
@@ -11,10 +11,14 @@ function Adminsignupform() {
     const adminUsersCollectionRef = collection(db, "adminUsers");
 
     const register = async () => {
-        
-       await addDoc(adminUsersCollectionRef, {email:registerEmail,password:registerPassword});
-       alert("New admin created successfully");
-
+        if (registerEmail === "") {
+            alert("Please enter the email")
+        } else if (registerPassword === "") {
+            alert("Please enter a password")
+        } else {
+            await addDoc(adminUsersCollectionRef, { email: registerEmail, password: registerPassword });
+            alert("New admin created successfully");
+        }
     }
 
     return (

@@ -49,6 +49,7 @@ function Adminaddproduct() {
                         .then((url) => {
                             setUrls((prevState) => [...prevState, url]);
                             console.log(urls);
+                            setImages([]);
                         })
                         .catch((err) => {
                             alert(err);
@@ -63,27 +64,42 @@ function Adminaddproduct() {
     };
 
     const setProduct = () => {
-        addDoc(collection(db, "Products"), {
-            categoryId: category,
-            productName: title,
-            imageURLs: urls,
-            productDescription: description,
-            productPrice: Number(productPrice),
-            shippingOptionOne: shippingOptionOne,
-            shippingOptionOnePrice: Number(shippingOptionOnePrice),
-            shippingOptionTwo: shippingOptionTwo,
-            shippingOptionTwoPrice: Number(shippingOptionTwoPrice),
-            shippingOptionThree: shippingOptionThree,
-            shippingOptionThreePrice: Number(shippingOptionThreePrice),
-            variations: variations,
-            aliLink: aliexpressLink
-        })
-            .then(() => {
-                alert("Product Added");
+        if (category === "") {
+            alert("Please select a category!");
+        } else if (title === "") {
+            alert("Please enter a product title!");
+        } else if (urls === null) {
+            alert("Please re enter the images!");
+        } else if (description === "") {
+            alert("Please enter a product description!");
+        } else if (productPrice === 0) {
+            alert("Please enter the product price!");
+        } else if (aliexpressLink === "") {
+            alert("Please enter the aliExpress link!")
+        } else {
+            addDoc(collection(db, "Products"), {
+                categoryId: category,
+                productName: title,
+                imageURLs: urls,
+                productDescription: description,
+                productPrice: Number(productPrice),
+                shippingOptionOne: shippingOptionOne,
+                shippingOptionOnePrice: Number(shippingOptionOnePrice),
+                shippingOptionTwo: shippingOptionTwo,
+                shippingOptionTwoPrice: Number(shippingOptionTwoPrice),
+                shippingOptionThree: shippingOptionThree,
+                shippingOptionThreePrice: Number(shippingOptionThreePrice),
+                variations: variations,
+                aliLink: aliexpressLink
             })
-            .catch((err) => {
-                alert(err);
-            })
+                .then(() => {
+                    alert("Product Added");
+                    setUrls([]);
+                })
+                .catch((err) => {
+                    alert(err);
+                })
+        }
     }
 
 
@@ -113,7 +129,7 @@ function Adminaddproduct() {
                             <input required name='pictures' type="file" multiple className="adminaddproducts-form-name" onChange={handleChange} />
                         </div>
                         <div className="adminaddproducts-form-signup-button">
-                        <button className='adminaddproducts-form-button'  onClick={addImages}>Set Images</button>
+                            <button className='adminaddproducts-form-button' onClick={addImages}>Set Images</button>
                         </div>
                         <div className='adminaddproducts-form-details'>
                             <textarea required name='description' placeholder="Product Description" className="adminaddproducts-form-name" onChange={(event) => (setDescription(event.target.value))} />

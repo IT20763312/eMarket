@@ -26,7 +26,7 @@ function Products({ isAuth }) {
 
     const [buttonPopup, setButtonPopup] = useState(false);
 
-    const [country, setCountry] = useState("");
+    const [country, setCountry] = useState(geoCountry.country);
     const [name, setName] = useState("");
     const [telephoneNumber, setTelephoneNumber] = useState(0);
     const [street, setStreet] = useState("");

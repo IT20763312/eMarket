@@ -45,7 +45,7 @@
     padding: 10px 10px;
   }
   
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 400px) {
     .categorywiseproductlist-column {
       width: 100%;
       display: block;

@@ -53,7 +53,7 @@ function Adminexchangeorderslist() {
                     <option value="Exchange Released">Exchange Released</option>
                 </select>
                 &nbsp;
-                <input onChange={(e) => setSearch(e.target.value)} placeholder="Search Investment ID" type="text" />
+                <input onChange={(e) => setSearch(e.target.value)} placeholder="Search Exchange ID" type="text" />
             </div>
             <div className='Adminexchangeorderslist-main'>
 

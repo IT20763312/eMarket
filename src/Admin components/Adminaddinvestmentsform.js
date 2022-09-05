@@ -22,8 +22,20 @@ function Adminaddinvestmentsform() {
     const investmentsCollectionRef = collection(db, "investments");
 
     const addInvestment = async () => {
-        await addDoc(investmentsCollectionRef, { currencySymbol: currencySymbol, investAmount: Number(investAmount), monthlyInterestRate: Number(monthlyInterestRate), yearlyInterestRate: Number(yearlyInterestRate), investmentStatus: investmentStatus });
-        alert("New Investment Added!");
+        if (currencySymbol === "") {
+            alert("Please enter the currency symbol")
+        } else if (investAmount === 0) {
+            alert("Please enter the invesment amount")
+        } else if (yearlyInterestRate === 0) {
+            alert("Please enter the yearly interest rate")
+        } else if (monthlyInterestRate === 0) {
+            alert("Please enter the monthly interest rate")
+        } else if (investmentStatus === "") {
+            alert("Please select the investment status")
+        } else {
+            await addDoc(investmentsCollectionRef, { currencySymbol: currencySymbol, investAmount: Number(investAmount), monthlyInterestRate: Number(monthlyInterestRate), yearlyInterestRate: Number(yearlyInterestRate), investmentStatus: investmentStatus });
+            alert("New Investment Added!");
+        }
     }
 
     const q = query(collection(db, "investments"), orderBy("currencySymbol"), orderBy("investAmount"));
@@ -42,10 +54,20 @@ function Adminaddinvestmentsform() {
     };
 
     const editInvestment = async () => {
-        const investmentDoc = doc(db, "investments", editInvestmentId)
-        const newFields = { currencySymbol: editcurrencySymbol, investAmount: Number(editinvestAmount), monthlyInterestRate: Number(editmonthlyInterestRate), yearlyInterestRate: Number(edityearlyInterestRate) };
-        await updateDoc(investmentDoc, newFields);
-        alert("Investment Updated");
+        if (editcurrencySymbol === "") {
+            alert("Please enter the currency symbol")
+        } else if (editinvestAmount === null) {
+            alert("Please enter the invesment amount")
+        } else if (edityearlyInterestRate === null) {
+            alert("Please enter the yearly interest rate")
+        } else if (editmonthlyInterestRate === null) {
+            alert("Please enter the monthly interest rate")
+        } else {
+            const investmentDoc = doc(db, "investments", editInvestmentId)
+            const newFields = { currencySymbol: editcurrencySymbol, investAmount: Number(editinvestAmount), monthlyInterestRate: Number(editmonthlyInterestRate), yearlyInterestRate: Number(edityearlyInterestRate) };
+            await updateDoc(investmentDoc, newFields);
+            alert("Investment Updated");
+        }
     }
 
     const disable = async (id) => {

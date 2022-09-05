@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Adminmanagecategories.css';
 import { db } from '../Firebase-config';
-import { addDoc, collection, getDocs, updateDoc, doc,query,orderBy } from 'firebase/firestore';
+import { addDoc, collection, getDocs, updateDoc, doc, query, orderBy } from 'firebase/firestore';
 
 
 function Adminmanagecategories() {
@@ -13,17 +13,28 @@ function Adminmanagecategories() {
 
     const [editableCategories, setEditableCategories] = useState([])
 
-    const categoriesCollectionRef = query(collection(db, "categories"),orderBy("categoryName"));
+    const categoriesCollectionRef = query(collection(db, "categories"), orderBy("categoryName"));
+
+    const q1 = query(collection(db, "categories"))
 
     const addCategories = async () => {
-        await addDoc(categoriesCollectionRef, { categoryName: category });
-        alert("New category created!");
+        if (category === "") {
+            alert("Please enter a category");
+        } else {
+            await addDoc(q1, { categoryName: category });
+            alert("New category created!");
+        }
     }
 
     const editCategories = async () => {
-       const categoryDoc = doc(db,"categories",editcategoryId)
-       const newFields = { categoryName: editcategory};
-       await updateDoc(categoryDoc,newFields);
+        if (editcategory === "") {
+            alert("Please enter the edit category");
+        } else {
+            const categoryDoc = doc(db, "categories", editcategoryId)
+            const newFields = { categoryName: editcategory };
+            await updateDoc(categoryDoc, newFields);
+            alert("Category Edited");
+        }
     }
 
     const getEditableCategories = async () => {
@@ -31,7 +42,7 @@ function Adminmanagecategories() {
         setEditableCategories(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
-    const getEditableCategory = async (id,name) => {
+    const getEditableCategory = async (id, name) => {
         setEditCategoryName(name);
         setEditCategoryId(id);
     };
@@ -83,7 +94,7 @@ function Adminmanagecategories() {
                     return (
                         <>
                             <div className='admincategory-returns'>
-                            <h2 className='admincategories-h2'>{cate.categoryName}</h2><button onClick={()=>getEditableCategory(cate.id,cate.categoryName)}>Edit</button>
+                                <h2 className='admincategories-h2'>{cate.categoryName}</h2><button onClick={() => getEditableCategory(cate.id, cate.categoryName)}>Edit</button>
                             </div>
                         </>
                     );

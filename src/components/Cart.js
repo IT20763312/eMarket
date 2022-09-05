@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { collection, query, where, getDocs, doc, deleteDoc } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth';
+import { getAuth, } from 'firebase/auth';
 import { db } from '../Firebase-config';
 import { useNavigate } from 'react-router-dom';
 import './Cart.css';
@@ -38,7 +38,7 @@ function Cart() {
         const item = doc(db, "Cart", id);
         await deleteDoc(item).then(() => {
             alert("Item removed successfully");
-            navigate('/mycart')
+            navigate('/mycart');
         }).catch((err) => {
             alert(err)
         })

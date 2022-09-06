@@ -4,7 +4,7 @@ import './Videosection.css';
 function HeroSection() {
   return (
     <div className='hero-container'>
-      <video src='/Videos/video-1.mp4' autoPlay loop muted />
+      <video src='/Videos/Comp1.mp4' autoPlay loop muted />
     </div>
   );
 }

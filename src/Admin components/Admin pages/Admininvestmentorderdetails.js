@@ -5,7 +5,7 @@ import Admininvestmentorderlistdetails from '../Admininvestmentorderlistdetails'
 function Admininvestmentorderdetails({adminAuth}) {
   return (
     <>
-      {adminAuth  || localStorage.getItem("adminAuth", true) ? (
+      {adminAuth  || sessionStorage.getItem("adminAuth", true) ? (
                 <>
                     <Adminnavbar />
                     <Admininvestmentorderlistdetails />

@@ -27,7 +27,7 @@ function Adminloginform({ setAdminAuth }) {
 
         adminUsers.map((user) => {
             if (registerEmail === user.email && registerPassword === user.password) {
-                localStorage.setItem("adminAuth", true);
+                sessionStorage.setItem("adminAuth", true);
                 setAdminAuth(true);
                 alert("Signed in successfully!");
                 navigate('/adminhome');

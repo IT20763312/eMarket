@@ -36,7 +36,7 @@ function Liveprice({ isAuth, setIsAuth }) {
 
   const logOut = () => {
     signOut(auth).then(() => {
-      localStorage.setItem("isAuth", false);
+      sessionStorage.setItem("isAuth", false);
       setIsAuth(false);
       navigate("/");
     });

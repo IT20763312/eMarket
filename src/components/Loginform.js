@@ -18,7 +18,7 @@ function Loginform({setIsAuth}) {
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
-            localStorage.setItem("isAuth", true);
+            sessionStorage.setItem("isAuth", true);
             setIsAuth(true);
             alert("Successfully Signed in!");
             navigate("/");
@@ -32,7 +32,7 @@ function Loginform({setIsAuth}) {
     const googleRegister = () => {
         signInWithPopup(auth,googleProvider).then(()=>{
             setIsAuth(true);
-            localStorage.setItem("isAuth", true);
+            sessionStorage.setItem("isAuth", true);
             navigate("/");
         })
         .catch((error)=>{
@@ -44,7 +44,7 @@ function Loginform({setIsAuth}) {
     const facebookRegister = () =>{
         signInWithPopup(auth,facebookProvider).then((result)=>{
             setIsAuth(true);
-            localStorage.setItem("isAuth",true);
+            sessionStorage.setItem("isAuth",true);
             navigate("/");
         })
         .catch((error)=>{

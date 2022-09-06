@@ -32,7 +32,7 @@ function Signupform({setIsAuth}) {
     const googleRegister = () => {
         signInWithPopup(auth,googleProvider).then(()=>{
             setIsAuth(true);
-            localStorage.setItem("isAuth", true);
+            sessionStorage.setItem("isAuth", true);
             navigate("/");
         })
         .catch((error)=>{
@@ -44,7 +44,7 @@ function Signupform({setIsAuth}) {
     const facebookRegister = () =>{
         signInWithPopup(auth,facebookProvider).then((result)=>{
             setIsAuth(true);
-            localStorage.setItem("isAuth",true);
+            sessionStorage.setItem("isAuth",true);
             navigate("/");
         })
         .catch((error)=>{

@@ -5,7 +5,7 @@ import AdminEditProduct from '../Admineditproducts';
 function Admineditproduct({adminAuth}) {
   return (
     <>
-            {adminAuth || localStorage.getItem("adminAuth", true) ? (
+            {adminAuth || sessionStorage.getItem("adminAuth", true) ? (
                 <>
                     <AdminNavBar />
                     <AdminEditProduct />

@@ -5,7 +5,7 @@ import Adminmarketplaceorderslist from '../Adminmarketplaceorderslist';
 function Adminmarketplaceorders({adminAuth}) {
   return (
     <>
-    {adminAuth  || localStorage.getItem("adminAuth", true) ?(
+    {adminAuth  || sessionStorage.getItem("adminAuth", true) ?(
       <>
       <Adminnavbar/>
       <Adminmarketplaceorderslist/>

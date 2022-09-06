@@ -43,6 +43,10 @@ function Mymarketplaceorders() {
         navigate('/mymarketplaceordersdetails', { state: { orderID: id } });
     }
 
+    const product = (id) =>{
+        navigate('/products',{state:{productId:id}});
+    }
+
     return (
         <>
             <h1 className='adminmarketplaceorderslist-h1'>My Orders</h1>
@@ -69,13 +73,13 @@ function Mymarketplaceorders() {
                             <div className='mymarketplaceorders-card'>
 
                                 <div className='mymarketplaceorders-image'>
-                                    <img alt='image1' className='mymarketplaceorders-img' src={Orders.image} />
+                                    <img onClick={()=>product(Orders.productId)} alt='image1' className='mymarketplaceorders-img' src={Orders.image} />
                                 </div>
 
 
                                 <div className='mymarketplaceorders-h2andh3andbutton'>
                                     <>
-                                        <h2 className='mymarketplaceorders-h2'>{Orders.productName}</h2>
+                                        <h2 onClick={()=>product(Orders.productId)} className='mymarketplaceorders-h2'>{Orders.productName}</h2>
                                     </>
 
                                     <h3 className='mymarketplaceorders-h3'>Quantity&nbsp; = &nbsp; {Orders.qty}</h3>

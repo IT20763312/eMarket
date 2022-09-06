@@ -48,6 +48,10 @@ function Cart() {
         navigate('/mycartbuynow', { state: { cartID: id } });
     }
 
+    const product = (id) =>{
+        navigate('/products',{state:{productId:id}});
+    }
+
     return (
         <>
             <h1 className='adminmarketplaceorderslist-h1'>My Cart</h1>
@@ -62,13 +66,13 @@ function Cart() {
                     <>
                         <div className='mycart-column'>
 
-                            <div className='mycart-card'>
+                            <div className='mycart-card' >
                                 <div className='mycart-image'>
-                                    <img alt='image1' className='mycart-img' src={cartPro.imageURL} />
+                                    <img onClick={()=>product(cartPro.productId)} alt='image1' className='mycart-img' src={cartPro.imageURL} />
                                 </div>
                                 <div className='mycart-h2andh3andbutton'>
                                     <>
-                                        <h2 className='mycart-h2'>{cartPro.productName}</h2>
+                                        <h2 onClick={()=>product(cartPro.productId)} className='mycart-h2'>{cartPro.productName}</h2>
                                         <h3 className='mycart-h3'>{cartPro.productPrice} &nbsp;USDT</h3>
                                     </>
                                     <h3 className='mycart-h3'>Quantity&nbsp; = &nbsp; {cartPro.qty}</h3>

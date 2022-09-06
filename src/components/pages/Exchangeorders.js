@@ -7,7 +7,7 @@ import Footer from '../Footer';
 function Exchangeorders({ isAuth, setIsAuth }) {
     return (
         <>
-            {isAuth || localStorage.getItem("isAuth",true) ? (
+            {isAuth || sessionStorage.getItem("isAuth",true) ? (
                 <>
                     <Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
                     <LivePrice isAuth={isAuth} setIsAuth={setIsAuth} />
